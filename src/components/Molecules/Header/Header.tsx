@@ -1,3 +1,4 @@
+import Button from "@/components/Atoms/Button/Button";
 import style from "./Header.module.scss";
 
 interface HeaderProps {
@@ -9,7 +10,7 @@ function Header(props: HeaderProps) {
   return (
     <div className={style.main}>
       <h1>{title}</h1>
-      <button>Login</button>
+      <Button label="Login" />
     </div>
   );
 }
