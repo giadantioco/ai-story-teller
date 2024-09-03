@@ -1,9 +1,14 @@
 import Head from "next/head";
-import styles from "@/styles/Home.module.css";
+import style from "@/styles/Home.module.css";
 import Header from "@/components/Molecules/Header/Header";
 import WindowBox from "@/components/Organism/Window/WindowBox";
+import InputBox from "@/components/Molecules/InputBox/InputBox";
+import { useState } from "react";
 
 export default function Home() {
+  const [protagonist, setProtagonist] = useState("");
+  const [antagonist, setAntagonist] = useState("");
+
   return (
     <>
       <Head>
@@ -12,10 +17,23 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
+      <main className={style.main}>
         <Header title={"AI Story Teller"} />
-        <div className={styles.content}>
-          <WindowBox title="Story Params"></WindowBox>
+        <div className={style.content}>
+          <WindowBox title="Story Params">
+            <div className={style.container}>
+              <InputBox
+                label={"Protagonist's name"}
+                value={protagonist}
+                setValue={setProtagonist}
+              ></InputBox>
+              <InputBox
+                label={"Antagonist's name"}
+                value={antagonist}
+                setValue={setAntagonist}
+              ></InputBox>
+            </div>
+          </WindowBox>
         </div>
       </main>
     </>
