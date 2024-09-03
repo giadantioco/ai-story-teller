@@ -1,0 +1,8 @@
+@mixin window-style() {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 2px 15px var(--color-100);
+}
