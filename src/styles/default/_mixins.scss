@@ -1,5 +1,5 @@
-@mixin window-style() {
-  width: 100%;
+@mixin window-style($width: 100%) {
+  width: $width;
   max-width: 900px;
   margin: auto;
   border-radius: 10px;
