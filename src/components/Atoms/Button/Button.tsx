@@ -4,12 +4,13 @@ interface ButtonProps {
   label: string;
   onClick?: () => void; //void perchè questa funzione non ritorna niente,
   // opzionale perche se no lo vuole subito
+  disabled?: boolean;
 }
 
 function Button(props: ButtonProps) {
-  const { label, onClick } = props;
+  const { label, onClick, disabled } = props;
   return (
-    <button className={style.button} onClick={onClick}>
+    <button disabled={disabled} className={style.button} onClick={onClick}>
       {label}
     </button>
   );
