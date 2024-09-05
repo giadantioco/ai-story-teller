@@ -1,5 +1,5 @@
 import Head from "next/head";
-import style from "@/styles/Home.module.css";
+import style from "@/styles/Home.module.scss";
 import Header from "@/components/Molecules/Header/Header";
 import WindowBox from "@/components/Organism/Window/WindowBox";
 import InputBox from "@/components/Molecules/InputBox/InputBox";
@@ -8,13 +8,46 @@ import SelectBox from "@/components/Molecules/SelectBox/SelectBox";
 import { genreList } from "@/constants/common";
 import Button from "@/components/Atoms/Button/Button";
 
+import {
+  GenerateContentCandidate,
+  GoogleGenerativeAI,
+} from "@google/generative-ai";
+
+import Switch from "@/components/Atoms/Switch/Switch";
+
 export default function Home() {
   const [protagonist, setProtagonist] = useState("");
   const [antagonist, setAntagonist] = useState("");
   const [genre, setGenre] = useState("");
+  const [pagi18, setPagi18] = useState(false);
 
-  const handleGenerate = () => {
+  const [response, setResponse] = useState("");
+
+  const prompt = `Generate an ${genre} story for ${
+    pagi18 ? "adults" : "children"
+  }, with ${protagonist} s protagonist and ${antagonist} as antagonist`;
+
+  const handleGenerate = async () => {
     console.log({ protagonist, antagonist, genre });
+
+    //controlliamo se esiste
+    if (process.env.NEXT_PUBLIC_GEMINI_KEY) {
+      // se esiste crea istanza
+      const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_KEY);
+      // decidi modello da utilizzare
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+      // passa promot
+      const result = await model.generateContent(prompt);
+      console.log(result);
+
+      const output = (
+        result.response.candidates as GenerateContentCandidate[]
+      )[0].content.parts[0].text;
+
+      if (output) {
+        setResponse(output);
+      }
+    }
   };
 
   return (
@@ -34,25 +67,25 @@ export default function Home() {
                 label={"Protagonist's name"}
                 value={protagonist}
                 setValue={setProtagonist}
-              ></InputBox>
+              />
               <InputBox
                 label={"Antagonist's name"}
                 value={antagonist}
                 setValue={setAntagonist}
-              ></InputBox>
-            </div>
-            <div className={style.container}>
+              />
               <SelectBox label="Genre:" list={genreList} setAction={setGenre} />
+              <Button
+                label="Generate"
+                onClick={handleGenerate}
+                disabled={
+                  protagonist.trim().length <= 0 ||
+                  antagonist.trim().length <= 0 ||
+                  genre.trim().length <= 0
+                }
+              />
+              <Switch active={pagi18} setActive={setPagi18} />
             </div>
-            <Button
-              label="Generate"
-              onClick={handleGenerate}
-              disabled={
-                protagonist.trim().length <= 0 ||
-                antagonist.trim().length <= 0 ||
-                genre.trim().length <= 0
-              }
-            />
+            <div className={style.result}>{response}</div>
           </WindowBox>
         </div>
       </main>

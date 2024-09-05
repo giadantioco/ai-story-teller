@@ -1,3 +1,11 @@
 .main {
-  margin: rem(15px) rem(0);
+  h3 {
+    margin-bottom: rem(15px);
+  }
+
+  select {
+    padding: rem(5px) rem(10px);
+    border: rem(1px) solid var(--color-20);
+    border-radius: rem(10px);
+  }
 }
