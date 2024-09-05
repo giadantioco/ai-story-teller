@@ -8,11 +8,6 @@ import SelectBox from "@/components/Molecules/SelectBox/SelectBox";
 import { genreList } from "@/constants/common";
 import Button from "@/components/Atoms/Button/Button";
 
-import {
-  GenerateContentCandidate,
-  GoogleGenerativeAI,
-} from "@google/generative-ai";
-
 import Switch from "@/components/Atoms/Switch/Switch";
 
 export default function Home() {
@@ -23,6 +18,7 @@ export default function Home() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState("");
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const handleGenerate = async () => {
     setLoading(true);
@@ -47,6 +43,8 @@ export default function Home() {
             body: JSON.stringify({ prompt }),
           });
           const data = await response.json();
+          console.log(data);
+          setResponse(data.output);
           if (!data.ok) {
             throw new Error("errore");
           }
@@ -58,6 +56,23 @@ export default function Home() {
       }
     }
     setLoading(false);
+  };
+
+  const handleVoice = () => {
+    const utterance = new SpeechSynthesisUtterance(response);
+    utterance.lang = "en-EN";
+    setIsPlaying(true);
+    speechSynthesis.speak(utterance);
+
+    utterance.onend = () => {
+      setIsPlaying(false);
+    };
+    utterance.rate = 0.2;
+  };
+
+  const handleStopVoice = () => {
+    speechSynthesis.cancel();
+    setIsPlaying(false);
   };
 
   return (
@@ -97,12 +112,22 @@ export default function Home() {
               />
             </div>
             {error && <p>errore nella generazione</p>}
-            {loading ? (
+            {loading && (
               <div className={style.loading}>
                 <p>loading...</p>
               </div>
-            ) : (
-              <div className={style.result}>{response}</div>
+            )}
+            {!loading && response && (
+              <div className={style.result}>
+                <div className={style.btn}>
+                  {isPlaying ? (
+                    <Button label="Stop Story" onClick={handleStopVoice} />
+                  ) : (
+                    <Button label="Play Story" onClick={handleVoice} />
+                  )}
+                </div>
+                {response}
+              </div>
             )}
           </WindowBox>
         </div>

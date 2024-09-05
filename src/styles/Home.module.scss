@@ -15,6 +15,16 @@
       margin-top: rem(20px);
       box-shadow: none;
       padding: rem(20px);
+
+      .btn {
+        display: flex;
+        justify-content: center;
+        gap: rem(10px);
+      }
+
+      button {
+        margin: 0 0 rem(10px) 0;
+      }
     }
 
     button {
