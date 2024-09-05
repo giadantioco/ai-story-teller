@@ -20,34 +20,44 @@ export default function Home() {
   const [antagonist, setAntagonist] = useState("");
   const [genre, setGenre] = useState("");
   const [pagi18, setPagi18] = useState(false);
-
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState("");
 
-  const prompt = `Generate an ${genre} story for ${
-    pagi18 ? "adults" : "children"
-  }, with ${protagonist} s protagonist and ${antagonist} as antagonist`;
-
   const handleGenerate = async () => {
-    console.log({ protagonist, antagonist, genre });
+    setLoading(true);
+    setError(false);
+
+    const prompt = `Generate an ${genre} story for ${
+      pagi18 ? "adults" : "children"
+    }, with ${protagonist} as protagonist and ${antagonist} as antagonist`;
 
     //controlliamo se esiste
     if (process.env.NEXT_PUBLIC_GEMINI_KEY) {
-      // se esiste crea istanza
-      const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_KEY);
-      // decidi modello da utilizzare
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-      // passa promot
-      const result = await model.generateContent(prompt);
-      console.log(result);
-
-      const output = (
-        result.response.candidates as GenerateContentCandidate[]
-      )[0].content.parts[0].text;
-
-      if (output) {
-        setResponse(output);
+      if (
+        protagonist.trim().length > 0 &&
+        antagonist.trim().length > 0 &&
+        genre.trim().length > 0
+      ) {
+        // se esiste crea istanza
+        try {
+          const response = await fetch("/api/generate", {
+            headers: { "Content-Type": "application/json" },
+            method: "POST",
+            body: JSON.stringify({ prompt }),
+          });
+          const data = await response.json();
+          if (!data.ok) {
+            throw new Error("errore");
+          }
+          setResponse(data.message);
+        } catch (e) {
+          console.log("nostro errore:", e);
+          setError(true);
+        }
       }
     }
+    setLoading(false);
   };
 
   return (
@@ -74,18 +84,26 @@ export default function Home() {
                 setValue={setAntagonist}
               />
               <SelectBox label="Genre:" list={genreList} setAction={setGenre} />
+              <Switch active={pagi18} setActive={setPagi18} />
               <Button
                 label="Generate"
                 onClick={handleGenerate}
                 disabled={
                   protagonist.trim().length <= 0 ||
                   antagonist.trim().length <= 0 ||
-                  genre.trim().length <= 0
+                  genre.trim().length <= 0 ||
+                  loading
                 }
               />
-              <Switch active={pagi18} setActive={setPagi18} />
             </div>
-            <div className={style.result}>{response}</div>
+            {error && <p>errore nella generazione</p>}
+            {loading ? (
+              <div className={style.loading}>
+                <p>loading...</p>
+              </div>
+            ) : (
+              <div className={style.result}>{response}</div>
+            )}
           </WindowBox>
         </div>
       </main>
