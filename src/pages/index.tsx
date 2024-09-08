@@ -9,6 +9,7 @@ import { genreList } from "@/constants/common";
 import Button from "@/components/Atoms/Button/Button";
 
 import Switch from "@/components/Atoms/Switch/Switch";
+import Toast from "@/components/Atoms/Toast/Toast";
 
 export default function Home() {
   const [protagonist, setProtagonist] = useState("");
@@ -86,6 +87,13 @@ export default function Home() {
       <main className={style.main}>
         <Header title={"AI Story Teller"} />
         <div className={style.content}>
+          {error && (
+            <Toast
+              setAction={setError}
+              title="Error"
+              message="Error creating the story"
+            />
+          )}
           <WindowBox title="Story Params">
             <div className={style.container}>
               <InputBox
