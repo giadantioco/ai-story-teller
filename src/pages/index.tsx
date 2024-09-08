@@ -7,7 +7,7 @@ import { useState } from "react";
 import SelectBox from "@/components/Molecules/SelectBox/SelectBox";
 import { genreList } from "@/constants/common";
 import Button from "@/components/Atoms/Button/Button";
-
+import Carousel from "@/components/Molecules/Carousel/Carousel";
 import Switch from "@/components/Atoms/Switch/Switch";
 import Toast from "@/components/Atoms/Toast/Toast";
 
@@ -19,7 +19,9 @@ export default function Home() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState("");
+  const [stories, setStories] = useState<string[]>([]);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleGenerate = async () => {
     setLoading(true);
@@ -50,6 +52,7 @@ export default function Home() {
             throw new Error("errore");
           }
           setResponse(data.message);
+          setStories((prevStories) => [...prevStories, data.message]);
         } catch (e) {
           console.log("nostro errore:", e);
           setError(true);
@@ -139,6 +142,14 @@ export default function Home() {
             )}
           </WindowBox>
         </div>
+
+        {!loading && stories.length > 0 && (
+          <Carousel
+            stories={stories}
+            currentIndex={currentIndex}
+            setCurrentIndex={setCurrentIndex}
+          />
+        )}
       </main>
     </>
   );
