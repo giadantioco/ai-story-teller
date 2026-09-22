@@ -7,9 +7,12 @@ import { useState } from "react";
 import SelectBox from "@/components/Molecules/SelectBox/SelectBox";
 import { genreList } from "@/constants/common";
 import Button from "@/components/Atoms/Button/Button";
-import Carousel from "@/components/Molecules/Carousel/Carousel";
 import Switch from "@/components/Atoms/Switch/Switch";
 import Toast from "@/components/Atoms/Toast/Toast";
+
+import {
+  GoogleGenerativeAI,
+} from "@google/generative-ai";
 
 export default function Home() {
   const [protagonist, setProtagonist] = useState("");
@@ -19,35 +22,27 @@ export default function Home() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState("");
-  const [stories, setStories] = useState<string[]>([]);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleGenerate = async () => {
     setLoading(true);
     setError(false);
 
-    const prompt = `Generate an ${genre} story for ${pagi18 ? "adults" : "children"
-      }, with ${protagonist} as protagonist and ${antagonist} as antagonist`;
+    try {
+      const prompt = `Generate an ${genre} story for ${pagi18 ? "adults" : "children"}, with ${protagonist} as protagonist and ${antagonist} as antagonist`;
 
-    //controlliamo se esiste
-    if (process.env.NEXT_PUBLIC_GEMINI_KEY) {
-      // se esiste crea istanza
-      const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_KEY);
-      // decidi modello da utilizzare
-      const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash-lite" });
-      // passa promot
-      const result = await model.generateContent(prompt);
-      console.log(result);
-
-      const output = (
-        result.response.candidates as GenerateContentCandidate[]
-      )[0].content.parts[0].text;
-      console.log("Output generato:", output);
-
-      if (output) {
-        setResponse(output);
+      if (process.env.NEXT_PUBLIC_GEMINI_KEY) {
+        const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_KEY);
+        const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash-lite" });
+        const result = await model.generateContent(prompt);
+        const output = result.response.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (output) {
+          setResponse(output);
+        }
       }
+    } catch (error) {
+      setError(true);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -103,25 +98,12 @@ export default function Home() {
             {!loading && response && (
               <div className={style.result}>
                 <div className={style.btn}>
-                  {isPlaying ? (
-                    <Button label="Stop Story" onClick={handleStopVoice} />
-                  ) : (
-                    <Button label="Play Story" onClick={handleVoice} />
-                  )}
                 </div>
                 {response}
               </div>
             )}
           </WindowBox>
         </div>
-
-        {!loading && stories.length > 0 && (
-          <Carousel
-            stories={stories}
-            currentIndex={currentIndex}
-            setCurrentIndex={setCurrentIndex}
-          />
-        )}
       </main>
     </>
   );
