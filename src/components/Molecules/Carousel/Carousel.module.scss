@@ -1,0 +1,25 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 200px;
+
+    .storyCard {
+      flex: 0 0 100%;
+      text-align: center;
+    }
+  }
+
+  .prevBtn,
+  .nextBtn {
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+  }
+}

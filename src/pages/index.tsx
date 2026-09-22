@@ -7,27 +7,28 @@ import { useState } from "react";
 import SelectBox from "@/components/Molecules/SelectBox/SelectBox";
 import { genreList } from "@/constants/common";
 import Button from "@/components/Atoms/Button/Button";
-
-import {
-  GenerateContentCandidate,
-  GoogleGenerativeAI,
-} from "@google/generative-ai";
-
+import Carousel from "@/components/Molecules/Carousel/Carousel";
 import Switch from "@/components/Atoms/Switch/Switch";
+import Toast from "@/components/Atoms/Toast/Toast";
 
 export default function Home() {
   const [protagonist, setProtagonist] = useState("");
   const [antagonist, setAntagonist] = useState("");
   const [genre, setGenre] = useState("");
   const [pagi18, setPagi18] = useState(false);
-
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState("");
-
-  const prompt = `Generate an ${genre} story for ${pagi18 ? "adults" : "children"
-    }, with ${protagonist} s protagonist and ${antagonist} as antagonist`;
+  const [stories, setStories] = useState<string[]>([]);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleGenerate = async () => {
-    console.log({ protagonist, antagonist, genre });
+    setLoading(true);
+    setError(false);
+
+    const prompt = `Generate an ${genre} story for ${pagi18 ? "adults" : "children"
+      }, with ${protagonist} as protagonist and ${antagonist} as antagonist`;
 
     //controlliamo se esiste
     if (process.env.NEXT_PUBLIC_GEMINI_KEY) {
@@ -61,6 +62,13 @@ export default function Home() {
       <main className={style.main}>
         <Header title={"AI Story Teller"} />
         <div className={style.content}>
+          {error && (
+            <Toast
+              setAction={setError}
+              title="Error"
+              message="Error creating the story"
+            />
+          )}
           <WindowBox title="Story Params">
             <div className={style.container}>
               <InputBox
@@ -74,20 +82,46 @@ export default function Home() {
                 setValue={setAntagonist}
               />
               <SelectBox label="Genre:" list={genreList} setAction={setGenre} />
+              <Switch active={pagi18} setActive={setPagi18} />
               <Button
                 label="Generate"
                 onClick={handleGenerate}
                 disabled={
                   protagonist.trim().length <= 0 ||
                   antagonist.trim().length <= 0 ||
-                  genre.trim().length <= 0
+                  genre.trim().length <= 0 ||
+                  loading
                 }
               />
-              <Switch active={pagi18} setActive={setPagi18} />
             </div>
-            <div className={style.result}>{response}</div>
+            {error && <p>errore nella generazione</p>}
+            {loading && (
+              <div className={style.loading}>
+                <p>loading...</p>
+              </div>
+            )}
+            {!loading && response && (
+              <div className={style.result}>
+                <div className={style.btn}>
+                  {isPlaying ? (
+                    <Button label="Stop Story" onClick={handleStopVoice} />
+                  ) : (
+                    <Button label="Play Story" onClick={handleVoice} />
+                  )}
+                </div>
+                {response}
+              </div>
+            )}
           </WindowBox>
         </div>
+
+        {!loading && stories.length > 0 && (
+          <Carousel
+            stories={stories}
+            currentIndex={currentIndex}
+            setCurrentIndex={setCurrentIndex}
+          />
+        )}
       </main>
     </>
   );
