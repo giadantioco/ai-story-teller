@@ -10,10 +10,6 @@ import Button from "@/components/Atoms/Button/Button";
 import Switch from "@/components/Atoms/Switch/Switch";
 import Toast from "@/components/Atoms/Toast/Toast";
 
-import {
-  GoogleGenerativeAI,
-} from "@google/generative-ai";
-
 export default function Home() {
   const [protagonist, setProtagonist] = useState("");
   const [antagonist, setAntagonist] = useState("");
@@ -30,16 +26,21 @@ export default function Home() {
     try {
       const prompt = `Generate an ${genre} story for ${pagi18 ? "adults" : "children"}, with ${protagonist} as protagonist and ${antagonist} as antagonist`;
 
-      if (process.env.NEXT_PUBLIC_GEMINI_KEY) {
-        const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_KEY);
-        const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash-lite" });
-        const result = await model.generateContent(prompt);
-        const output = result.response.candidates?.[0]?.content?.parts?.[0]?.text;
-        if (output) {
-          setResponse(output);
-        }
+      const res = await fetch("/api/generateStory", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt }),
+      });
+
+      const data = await res.json();
+
+      if (data.output) {
+        setResponse(data.output);
+      } else {
+        setError(true);
       }
     } catch (error) {
+      console.error("Errore:", error);
       setError(true);
     } finally {
       setLoading(false);
