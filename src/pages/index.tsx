@@ -23,9 +23,8 @@ export default function Home() {
 
   const [response, setResponse] = useState("");
 
-  const prompt = `Generate an ${genre} story for ${
-    pagi18 ? "adults" : "children"
-  }, with ${protagonist} s protagonist and ${antagonist} as antagonist`;
+  const prompt = `Generate an ${genre} story for ${pagi18 ? "adults" : "children"
+    }, with ${protagonist} s protagonist and ${antagonist} as antagonist`;
 
   const handleGenerate = async () => {
     console.log({ protagonist, antagonist, genre });
@@ -35,7 +34,7 @@ export default function Home() {
       // se esiste crea istanza
       const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_KEY);
       // decidi modello da utilizzare
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+      const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash-lite" });
       // passa promot
       const result = await model.generateContent(prompt);
       console.log(result);
@@ -43,6 +42,7 @@ export default function Home() {
       const output = (
         result.response.candidates as GenerateContentCandidate[]
       )[0].content.parts[0].text;
+      console.log("Output generato:", output);
 
       if (output) {
         setResponse(output);
