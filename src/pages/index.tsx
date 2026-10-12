@@ -8,6 +8,7 @@ import SelectBox from "@/components/Molecules/SelectBox/SelectBox";
 import { ageList, themeList } from "@/constants/common";
 import Button from "@/components/Atoms/Button/Button";
 import Toast from "@/components/Atoms/Toast/Toast";
+import type { GetStaticPropsContext } from "next";
 
 export default function Home() {
   const [age, setAge] = useState("");
@@ -113,4 +114,15 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const locale = context.locale ?? "en";
+  const messages = (await import(`../../messages/${locale}.json`)).default;
+
+  return {
+    props: {
+      messages,
+    },
+  };
 }
