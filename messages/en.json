@@ -10,5 +10,17 @@
     "errorTitle": "Error",
     "createErr": "Error creating the story",
     "generateErr": "Error while generating story"
+  },
+  "Themes": {
+    "animals": "Animals",
+    "bedtime": "Bedtime",
+    "friendship": "Friendship",
+    "magic": "Magic",
+    "adventure": "Adventure"
+  },
+  "Ages": {
+    "2-3": "2-3 years",
+    "3-4": "3-4 years",
+    "4-5": "4-5 years"
   }
 }

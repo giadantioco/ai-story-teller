@@ -8,9 +8,7 @@ interface InputProps {
 
 function Input(props: InputProps) {
   const { value, setValue } = props;
-  //   const [value, setValue] = useState(""); --> lo state va gestito con le props per avere un compontente dinamico
   return (
-    // controlled component = componenti gestiti da uno state!
     <input
       className={style.input}
       value={value}
