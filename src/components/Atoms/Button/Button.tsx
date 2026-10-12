@@ -2,8 +2,7 @@ import style from "./Button.module.scss";
 
 interface ButtonProps {
   label: string;
-  onClick?: () => void; //void perchè questa funzione non ritorna niente,
-  // opzionale perche se no lo vuole subito
+  onClick?: () => void;
   disabled?: boolean;
 }
 

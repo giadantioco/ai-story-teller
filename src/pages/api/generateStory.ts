@@ -63,10 +63,11 @@ export default async function handler(
     const result = await model.generateContent(prompt);
     const output = result.response.candidates?.[0]?.content?.parts?.[0]?.text;
 
-    if (!output) return res.status(500).json({ error: "No story generated" });
+    if (!output)
+      return res.status(500).json({ error: "Error creating the story" });
     return res.status(200).json({ output });
   } catch (error) {
-    console.error("Errore Gemini:", error);
+    console.error("Error:", error);
     return res.status(500).json({ error: "Error while generating story" });
   }
 }

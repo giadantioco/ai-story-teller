@@ -1,0 +1,26 @@
+{
+  "Home": {
+    "boxTitle": "Story Params",
+    "boxAge": "Age:",
+    "boxTheme": "Theme:",
+    "boxProtagonist": "Protagonist's name",
+    "boxFriend": "Friend's name (optional)",
+    "generate": "Generate",
+    "divLoading": "loading...",
+    "errorTitle": "Error",
+    "createErr": "Error creating the story",
+    "generateErr": "Error while generating story"
+  },
+  "Themes": {
+    "animals": "Animals",
+    "bedtime": "Bedtime",
+    "friendship": "Friendship",
+    "magic": "Magic",
+    "adventure": "Adventure"
+  },
+  "Ages": {
+    "2-3": "2-3 years",
+    "3-4": "3-4 years",
+    "4-5": "4-5 years"
+  }
+}
