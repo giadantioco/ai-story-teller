@@ -54,7 +54,7 @@ export default function Home() {
         <title>Storyteller</title>
         <meta
           name="description"
-          content="A customised Gemini that generates stories for children aged 2 to 5! <3 
+          content="A customised Gemini APP that generates stories for children aged 2 to 5! <3 
           Developed by a tired mum :)"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

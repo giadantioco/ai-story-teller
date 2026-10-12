@@ -1,0 +1,14 @@
+{
+  "Home": {
+    "boxTitle": "Parametri della storia",
+    "boxAge": "Fascia d'età:",
+    "boxTheme": "Tema:",
+    "boxProtagonist": "Nome del protagonista",
+    "boxFriend": "Nome dell’amico (opzionale)",
+    "generate": "Genera",
+    "divLoading": "Sto riflettendo...",
+    "errorTitle": "Errore",
+    "createErr": "Impossibile creare la storia",
+    "generateErr": "Errore durante la generazione della storia"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "Home": {
+    "boxTitle": "Story Params",
+    "boxAge": "Age:",
+    "boxTheme": "Theme:",
+    "boxProtagonist": "Protagonist's name",
+    "boxFriend": "Friend's name (optional)",
+    "generate": "Generate",
+    "divLoading": "loading...",
+    "errorTitle": "Error",
+    "createErr": "Error creating the story",
+    "generateErr": "Error while generating story"
+  }
+}
