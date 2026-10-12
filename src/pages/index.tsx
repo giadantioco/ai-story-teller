@@ -9,6 +9,7 @@ import { ageList, themeList } from "@/constants/common";
 import Button from "@/components/Atoms/Button/Button";
 import Toast from "@/components/Atoms/Toast/Toast";
 import type { GetStaticPropsContext } from "next";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
   const [age, setAge] = useState("");
@@ -18,6 +19,7 @@ export default function Home() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState("");
+  const t = useTranslations("Home");
 
   const handleGenerate = async () => {
     setLoading(true);
@@ -67,26 +69,34 @@ export default function Home() {
           {error && (
             <Toast
               setAction={setError}
-              title="Error"
-              message="Error creating the story"
+              title={t("errorTitle")}
+              message={t("createErr")}
             />
           )}
-          <WindowBox title="Story Params">
+          <WindowBox title={t("boxTitle")}>
             <div className={style.container}>
-              <SelectBox label="Age:" list={ageList} setAction={setAge} />
-              <SelectBox label="Theme:" list={themeList} setAction={setTheme} />
+              <SelectBox
+                label={t("boxAge")}
+                list={ageList}
+                setAction={setAge}
+              />
+              <SelectBox
+                label={t("boxTheme")}
+                list={themeList}
+                setAction={setTheme}
+              />
               <InputBox
-                label={"Protagonist's name"}
+                label={t("boxProtagonist")}
                 value={protagonist}
                 setValue={setProtagonist}
               />
               <InputBox
-                label={"Friend's name (optional)"}
+                label={t("boxFriend")}
                 value={friend}
                 setValue={setFriend}
               />
               <Button
-                label="Generate"
+                label={t("generate")}
                 onClick={handleGenerate}
                 disabled={
                   age.trim().length <= 0 ||
@@ -99,7 +109,7 @@ export default function Home() {
             {error && <p>Error while generating story</p>}
             {loading && (
               <div className={style.loading}>
-                <p>loading...</p>
+                <p>{t("divLoading")}</p>
               </div>
             )}
             {!loading && response && (
