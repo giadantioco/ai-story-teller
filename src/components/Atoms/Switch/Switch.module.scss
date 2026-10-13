@@ -1,6 +1,9 @@
 .main {
   width: rem(65px);
   height: rem(35px);
+  padding: 0;
+  font: inherit;
+  appearance: none;
   border-radius: rem(35px);
   border: 1px solid var(--color-20);
   display: flex;
@@ -25,8 +28,5 @@
       left: rem(30px);
       border: 1px solid var(--color-20);
     }
-  }
-  &.active {
-    background-color: var(--color-100);
   }
 }
