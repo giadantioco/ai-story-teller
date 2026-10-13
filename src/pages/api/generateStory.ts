@@ -5,6 +5,11 @@ import {
 } from "@google/generative-ai";
 import type { NextApiRequest, NextApiResponse } from "next";
 
+const LANGUAGES: Record<string, string> = {
+  en: "English",
+  it: "Italian",
+};
+
 const AGE_RULES: Record<string, string> = {
   "2-3":
     "80-150 words. Sentences of 3-6 words. Lots of repetition and onomatopoeia (e.g. 'splash!', 'meow'). Everyday objects and situations (animals, bath time, mealtime, bedtime). No conflict.",
@@ -30,13 +35,18 @@ export default async function handler(
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { age, theme, protagonist, friend } = req.body;
+  const { age, theme, protagonist, friend, locale } = req.body;
 
-  if (!AGE_RULES[age] || !THEMES.includes(theme) || !clean(protagonist)) {
+  if (
+    !LANGUAGES[locale] ||
+    !AGE_RULES[age] ||
+    !THEMES.includes(theme) ||
+    !clean(protagonist)
+  ) {
     return res.status(400).json({ error: "Parameters not valid" });
   }
 
-  const prompt = `Write a story in English for children aged ${age}.
+  const prompt = `Write a story in ${LANGUAGES[locale]} for children aged ${age}.
     Theme: ${theme}.
     Protagonist: ${clean(protagonist)}.${
       clean(friend) ? `\nFriend/adventure companion: ${clean(friend)}.` : ""

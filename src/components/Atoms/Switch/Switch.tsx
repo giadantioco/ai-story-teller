@@ -1,9 +1,8 @@
-import { Dispatch, SetStateAction, useState } from "react";
 import style from "./Switch.module.scss";
 
 interface SwitchProps {
   active: boolean;
-  setActive: Dispatch<SetStateAction<boolean>>;
+  setActive: (param: boolean) => void;
 }
 
 const Switch = (props: SwitchProps) => {

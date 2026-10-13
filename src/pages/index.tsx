@@ -9,7 +9,7 @@ import { ageList, themeList } from "@/constants/common";
 import Button from "@/components/Atoms/Button/Button";
 import Toast from "@/components/Atoms/Toast/Toast";
 import type { GetStaticPropsContext } from "next";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function Home() {
   const [age, setAge] = useState("");
@@ -20,6 +20,19 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState("");
   const t = useTranslations("Home");
+  const tAge = useTranslations("Ages");
+  const tTheme = useTranslations("Themes");
+  const locale = useLocale();
+
+  const translatedAges = ageList.map((item) => ({
+    value: item.value,
+    label: tAge(item.value),
+  }));
+
+  const translatedThemes = themeList.map((item) => ({
+    value: item.value,
+    label: tTheme(item.value),
+  }));
 
   const handleGenerate = async () => {
     setLoading(true);
@@ -29,11 +42,10 @@ export default function Home() {
       const res = await fetch("/api/generateStory", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ age, theme, protagonist, friend }),
+        body: JSON.stringify({ age, theme, protagonist, friend, locale }),
       });
 
       const data = await res.json();
-      console.log(JSON.stringify(data.output));
 
       if (data.output) {
         setResponse(data.output);
@@ -77,12 +89,12 @@ export default function Home() {
             <div className={style.container}>
               <SelectBox
                 label={t("boxAge")}
-                list={ageList}
+                list={translatedAges}
                 setAction={setAge}
               />
               <SelectBox
                 label={t("boxTheme")}
-                list={themeList}
+                list={translatedThemes}
                 setAction={setTheme}
               />
               <InputBox
@@ -106,7 +118,7 @@ export default function Home() {
                 }
               />
             </div>
-            {error && <p>Error while generating story</p>}
+            {error && <p>{t("generateErr")}</p>}
             {loading && (
               <div className={style.loading}>
                 <p>{t("divLoading")}</p>

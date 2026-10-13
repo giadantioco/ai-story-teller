@@ -8,7 +8,7 @@
     "generate": "Generate",
     "divLoading": "loading...",
     "errorTitle": "Error",
-    "createErr": "Error creating the story",
+    "createErr": "Error while creating story",
     "generateErr": "Error while generating story"
   },
   "Themes": {
