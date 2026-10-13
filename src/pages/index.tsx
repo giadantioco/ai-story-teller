@@ -126,7 +126,6 @@ export default function Home() {
             )}
             {!loading && response && (
               <div className={style.result}>
-                <div className={style.btn}></div>
                 <h3>{title}</h3>
                 <p>{story}</p>
               </div>

@@ -1,4 +1,7 @@
 {
+  "Header": {
+    "languageSwitch": "English"
+  },
   "Home": {
     "boxTitle": "Story Params",
     "boxAge": "Age:",

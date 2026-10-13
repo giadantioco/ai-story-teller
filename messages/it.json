@@ -1,4 +1,7 @@
 {
+  "Header": {
+    "languageSwitch": "Italiano"
+  },
   "Home": {
     "boxTitle": "Parametri della storia",
     "boxAge": "Fascia d'età:",
