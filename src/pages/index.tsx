@@ -20,6 +20,18 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState("");
   const t = useTranslations("Home");
+  const tAge = useTranslations("Ages");
+  const tTheme = useTranslations("Themes");
+
+  const translatedAges = ageList.map((item) => ({
+    value: item.value,
+    label: tAge(item.value),
+  }));
+
+  const translatedThemes = themeList.map((item) => ({
+    value: item.value,
+    label: tTheme(item.value),
+  }));
 
   const handleGenerate = async () => {
     setLoading(true);
@@ -77,12 +89,12 @@ export default function Home() {
             <div className={style.container}>
               <SelectBox
                 label={t("boxAge")}
-                list={ageList}
+                list={translatedAges}
                 setAction={setAge}
               />
               <SelectBox
                 label={t("boxTheme")}
-                list={themeList}
+                list={translatedThemes}
                 setAction={setTheme}
               />
               <InputBox
