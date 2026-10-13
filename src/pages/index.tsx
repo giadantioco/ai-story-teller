@@ -9,7 +9,7 @@ import { ageList, themeList } from "@/constants/common";
 import Button from "@/components/Atoms/Button/Button";
 import Toast from "@/components/Atoms/Toast/Toast";
 import type { GetStaticPropsContext } from "next";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function Home() {
   const [age, setAge] = useState("");
@@ -22,6 +22,7 @@ export default function Home() {
   const t = useTranslations("Home");
   const tAge = useTranslations("Ages");
   const tTheme = useTranslations("Themes");
+  const locale = useLocale();
 
   const translatedAges = ageList.map((item) => ({
     value: item.value,
@@ -41,11 +42,10 @@ export default function Home() {
       const res = await fetch("/api/generateStory", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ age, theme, protagonist, friend }),
+        body: JSON.stringify({ age, theme, protagonist, friend, locale }),
       });
 
       const data = await res.json();
-      console.log(JSON.stringify(data.output));
 
       if (data.output) {
         setResponse(data.output);
@@ -118,7 +118,7 @@ export default function Home() {
                 }
               />
             </div>
-            {error && <p>Error while generating story</p>}
+            {error && <p>{t("generateErr")}</p>}
             {loading && (
               <div className={style.loading}>
                 <p>{t("divLoading")}</p>
