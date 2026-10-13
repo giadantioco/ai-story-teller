@@ -2,6 +2,12 @@
   "Header": {
     "languageSwitch": "English"
   },
+  "Login": {
+    "btnLogin": "Login"
+  },
+  "Email": {
+    "email": "Email"
+  },
   "Home": {
     "boxTitle": "Story Params",
     "boxAge": "Age:",

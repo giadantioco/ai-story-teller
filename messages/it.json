@@ -2,6 +2,12 @@
   "Header": {
     "languageSwitch": "Italiano"
   },
+  "Login": {
+    "btnLogin": "Login"
+  },
+  "Email": {
+    "email": "Email"
+  },
   "Home": {
     "boxTitle": "Parametri della storia",
     "boxAge": "Fascia d'età:",
