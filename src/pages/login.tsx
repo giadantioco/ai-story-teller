@@ -19,7 +19,7 @@ export default function Login() {
     if (error) {
       setLoginError(true);
     } else {
-      setSent(sent);
+      setSent(true);
     }
   };
 
