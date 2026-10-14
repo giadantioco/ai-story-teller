@@ -10,7 +10,7 @@
     "email": "Email",
     "changeEmail": "Change email address",
     "checkEmail": "Check your email :)",
-    "errlogin": "Login error.."
+    "errLogin": "Login error.."
   },
   "Home": {
     "boxTitle": "Story Params",

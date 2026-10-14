@@ -8,9 +8,9 @@
     "headTitle": "Accedi / Storyteller",
     "btnLogin": "Login",
     "email": "Email",
-    "changeEmail": "Change email address",
+    "changeEmail": "Cambia indirizzo email",
     "checkEmail": "Controlla la tua mail :)",
-    "errlogin": "Errore login.."
+    "errLogin": "Errore login.."
   },
   "Home": {
     "boxTitle": "Parametri della storia",

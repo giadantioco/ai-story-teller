@@ -5,7 +5,7 @@ import { useState } from "react";
 import type { GetStaticPropsContext } from "next";
 import InputBox from "@/components/Molecules/InputBox/InputBox";
 import Button from "@/components/Atoms/Button/Button";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { supabase } from "@/lib/supabase";
 
 export default function Login() {
@@ -13,10 +13,14 @@ export default function Login() {
   const [sent, setSent] = useState(false);
   const [loginError, setLoginError] = useState(false);
   const tLogin = useTranslations("Login");
+  const locale = useLocale();
 
   const handleLogin = async () => {
     const { error } = await supabase.auth.signInWithOtp({
       email: email,
+      options: {
+        emailRedirectTo: `${window.location.origin}/${locale}`,
+      },
     });
     if (error) {
       setLoginError(true);
