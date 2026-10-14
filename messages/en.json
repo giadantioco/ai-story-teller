@@ -1,6 +1,16 @@
 {
   "Header": {
-    "languageSwitch": "English"
+    "languageSwitch": "English",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "Login": {
+    "headTitle": "Login / Storyteller",
+    "btnLogin": "Login",
+    "email": "Email",
+    "changeEmail": "Change email address",
+    "checkEmail": "Check your email :)",
+    "errLogin": "Login error.."
   },
   "Home": {
     "boxTitle": "Story Params",

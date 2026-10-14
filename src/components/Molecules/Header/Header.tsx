@@ -3,6 +3,8 @@ import Switch from "@/components/Atoms/Switch/Switch";
 import style from "./Header.module.scss";
 import { useRouter } from "next/router";
 import { useTranslations } from "next-intl";
+import { useUser } from "@/hooks/useUser";
+import { supabase } from "@/lib/supabase";
 
 interface HeaderProps {
   title: string;
@@ -10,6 +12,7 @@ interface HeaderProps {
 
 function Header(props: HeaderProps) {
   const t = useTranslations("Header");
+  const user = useUser();
 
   const { title } = props;
   const router = useRouter();
@@ -18,6 +21,14 @@ function Header(props: HeaderProps) {
 
   const changeLanguage = (isItalian: boolean) => {
     router.push(currentPage, currentPage, { locale: isItalian ? "it" : "en" });
+  };
+
+  const goToLogin = () => {
+    router.push("/login");
+  };
+
+  const handleLogout = () => {
+    supabase.auth.signOut();
   };
 
   return (
@@ -43,7 +54,15 @@ function Header(props: HeaderProps) {
             IT
           </span>
         </div>
-        <Button label="Login" />
+
+        {user ? (
+          <>
+            <span>{user.email}</span>
+            <Button label={t("logout")} onClick={handleLogout} />
+          </>
+        ) : (
+          <Button label={t("login")} onClick={goToLogin} />
+        )}
       </div>
     </div>
   );

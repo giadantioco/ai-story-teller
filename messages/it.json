@@ -1,6 +1,16 @@
 {
   "Header": {
-    "languageSwitch": "Italiano"
+    "languageSwitch": "Italiano",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "Login": {
+    "headTitle": "Accedi / Storyteller",
+    "btnLogin": "Login",
+    "email": "Email",
+    "changeEmail": "Cambia indirizzo email",
+    "checkEmail": "Controlla la tua mail :)",
+    "errLogin": "Errore login.."
   },
   "Home": {
     "boxTitle": "Parametri della storia",
