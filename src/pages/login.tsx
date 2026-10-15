@@ -23,6 +23,7 @@ export default function Login() {
       },
     });
     if (error) {
+      console.error("Errore:", error);
       setLoginError(true);
     } else {
       setSent(true);

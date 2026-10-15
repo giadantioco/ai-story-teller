@@ -22,7 +22,10 @@
     "divLoading": "loading...",
     "errorTitle": "Error",
     "createErr": "Error while creating story",
-    "generateErr": "Error while generating story"
+    "generateErr": "Error while generating story",
+    "save": "Save story",
+    "saved": "Saved ✓",
+    "logToSave": "Login to save your stories! <3"
   },
   "Themes": {
     "animals": "Animals",

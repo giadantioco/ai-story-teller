@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { useUser } from "@/hooks/useUser";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
+import { useGoToLogin } from "@/hooks/useGoToLogin";
 
 interface HeaderProps {
   logo: string;
@@ -14,6 +15,7 @@ interface HeaderProps {
 function Header(props: HeaderProps) {
   const t = useTranslations("Header");
   const user = useUser();
+  const goToLogin = useGoToLogin();
 
   const { logo } = props;
   const router = useRouter();
@@ -22,10 +24,6 @@ function Header(props: HeaderProps) {
 
   const changeLanguage = (isItalian: boolean) => {
     router.push(currentPage, currentPage, { locale: isItalian ? "it" : "en" });
-  };
-
-  const goToLogin = () => {
-    router.push("/login");
   };
 
   const handleLogout = () => {
