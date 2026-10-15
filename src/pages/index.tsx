@@ -76,7 +76,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={style.main}>
-        <Header title={"Storyteller"} />
+        <Header logo={"Storyteller"} />
         <div className={style.content}>
           {error && (
             <Toast

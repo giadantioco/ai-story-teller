@@ -5,16 +5,17 @@ import { useRouter } from "next/router";
 import { useTranslations } from "next-intl";
 import { useUser } from "@/hooks/useUser";
 import { supabase } from "@/lib/supabase";
+import Link from "next/link";
 
 interface HeaderProps {
-  title: string;
+  logo: string;
 }
 
 function Header(props: HeaderProps) {
   const t = useTranslations("Header");
   const user = useUser();
 
-  const { title } = props;
+  const { logo } = props;
   const router = useRouter();
   const currentPage = router.asPath;
   const locale = router.locale;
@@ -33,7 +34,9 @@ function Header(props: HeaderProps) {
 
   return (
     <div className={style.main}>
-      <h1>{title}</h1>
+      <Link href={"/"} className={style.logo}>
+        {logo}
+      </Link>
       <div className={style.nav}>
         <div className={style.switch}>
           <span
