@@ -5,16 +5,19 @@ import { useRouter } from "next/router";
 import { useTranslations } from "next-intl";
 import { useUser } from "@/hooks/useUser";
 import { supabase } from "@/lib/supabase";
+import Link from "next/link";
+import { useGoToLogin } from "@/hooks/useGoToLogin";
 
 interface HeaderProps {
-  title: string;
+  logo: string;
 }
 
 function Header(props: HeaderProps) {
   const t = useTranslations("Header");
   const user = useUser();
+  const goToLogin = useGoToLogin();
 
-  const { title } = props;
+  const { logo } = props;
   const router = useRouter();
   const currentPage = router.asPath;
   const locale = router.locale;
@@ -23,17 +26,15 @@ function Header(props: HeaderProps) {
     router.push(currentPage, currentPage, { locale: isItalian ? "it" : "en" });
   };
 
-  const goToLogin = () => {
-    router.push("/login");
-  };
-
   const handleLogout = () => {
     supabase.auth.signOut();
   };
 
   return (
     <div className={style.main}>
-      <h1>{title}</h1>
+      <Link href={"/"} className={style.logo}>
+        {logo}
+      </Link>
       <div className={style.nav}>
         <div className={style.switch}>
           <span

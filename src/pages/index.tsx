@@ -10,6 +10,9 @@ import Button from "@/components/Atoms/Button/Button";
 import Toast from "@/components/Atoms/Toast/Toast";
 import type { GetStaticPropsContext } from "next";
 import { useTranslations, useLocale } from "next-intl";
+import { useUser } from "@/hooks/useUser";
+import { supabase } from "@/lib/supabase";
+import { useGoToLogin } from "@/hooks/useGoToLogin";
 
 export default function Home() {
   const [age, setAge] = useState("");
@@ -19,10 +22,14 @@ export default function Home() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState("");
+  const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState(false);
   const t = useTranslations("Home");
   const tAge = useTranslations("Ages");
   const tTheme = useTranslations("Themes");
   const locale = useLocale();
+  const user = useUser();
+  const goToLogin = useGoToLogin();
 
   const translatedAges = ageList.map((item) => ({
     value: item.value,
@@ -37,6 +44,8 @@ export default function Home() {
   const handleGenerate = async () => {
     setLoading(true);
     setError(false);
+    setSaved(false);
+    setSaveError(false);
 
     try {
       const res = await fetch("/api/generateStory", {
@@ -53,7 +62,7 @@ export default function Home() {
         setError(true);
       }
     } catch (error) {
-      console.error("Errore:", error);
+      console.error("Error:", error);
       setError(true);
     } finally {
       setLoading(false);
@@ -62,6 +71,22 @@ export default function Home() {
 
   const [title, ...rest] = response.split("\n");
   const story = rest.join("\n").trim();
+
+  const handleSave = async () => {
+    const { error } = await supabase.from("stories").insert({
+      title: title,
+      content: story,
+      age_range: age,
+      theme: theme,
+      locale: locale,
+    });
+    if (error) {
+      console.error("Error:", error);
+      setSaveError(true);
+    } else {
+      setSaved(true);
+    }
+  };
 
   return (
     <>
@@ -76,7 +101,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={style.main}>
-        <Header title={"Storyteller"} />
+        <Header logo={"Storyteller"} />
         <div className={style.content}>
           {error && (
             <Toast
@@ -128,6 +153,15 @@ export default function Home() {
               <div className={style.result}>
                 <h3>{title}</h3>
                 <p>{story}</p>
+                {user ? (
+                  <Button
+                    label={saved ? t("saved") : t("save")}
+                    onClick={handleSave}
+                    disabled={saved}
+                  />
+                ) : (
+                  <Button label={t("logToSave")} onClick={goToLogin} />
+                )}
               </div>
             )}
           </WindowBox>

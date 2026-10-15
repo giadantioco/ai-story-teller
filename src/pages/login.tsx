@@ -23,6 +23,7 @@ export default function Login() {
       },
     });
     if (error) {
+      console.error("Errore:", error);
       setLoginError(true);
     } else {
       setSent(true);
@@ -37,7 +38,7 @@ export default function Login() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={style.main}>
-        <Header title={"Storyteller"} />
+        <Header logo={"Storyteller"} />
         <div className={style.content}>
           {sent ? (
             <>

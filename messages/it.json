@@ -6,11 +6,11 @@
   },
   "Login": {
     "headTitle": "Accedi / Storyteller",
-    "btnLogin": "Login",
+    "btnLogin": "Accedi",
     "email": "Email",
     "changeEmail": "Cambia indirizzo email",
     "checkEmail": "Controlla la tua mail :)",
-    "errLogin": "Errore login.."
+    "errLogin": "Errore accesso"
   },
   "Home": {
     "boxTitle": "Parametri della storia",
@@ -22,7 +22,10 @@
     "divLoading": "Sto riflettendo...",
     "errorTitle": "Errore",
     "createErr": "Impossibile creare la storia",
-    "generateErr": "Errore durante la generazione della storia"
+    "generateErr": "Errore durante la generazione della storia",
+    "save": "Salva storia",
+    "saved": "Salvata ✓",
+    "logToSave": "Accedi per salvare le tue storie! <3"
   },
   "Themes": {
     "animals": "Animali",
