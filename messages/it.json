@@ -30,7 +30,10 @@
   },
   "Stories": {
     "headTitle": "Le mie Storie | Storyteller",
-    "h1": "Le mie Storie"
+    "h1": "Le mie Storie",
+    "logoutTitle": "Accedi per vedere le tue storie",
+    "goToLogin": "Vai alla pagina accedi",
+    "emptyStories": "Non hai ancora salvato nessuna storia"
   },
   "Themes": {
     "animals": "Animali",

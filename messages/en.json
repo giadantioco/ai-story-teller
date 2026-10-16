@@ -30,7 +30,10 @@
   },
   "Stories": {
     "headTitle": "My Stories | Storyteller",
-    "h1": "My Stories"
+    "h1": "My Stories",
+    "goToLogin": "Go to login",
+    "logoutTitle": "Login to see your stories",
+    "emptyStories": "Nothing to show here :(."
   },
   "Themes": {
     "animals": "Animals",
