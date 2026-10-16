@@ -27,6 +27,10 @@
     "saved": "Salvata ✓",
     "logToSave": "Accedi per salvare le tue storie! <3"
   },
+  "Stories": {
+    "headTitle": "Le mie Storie | Storyteller",
+    "h1": "Le mie Storie"
+  },
   "Themes": {
     "animals": "Animali",
     "bedtime": "Buonanotte",
