@@ -2,7 +2,8 @@
   "Header": {
     "languageSwitch": "English",
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "myStories": "My Stories"
   },
   "Login": {
     "headTitle": "Login / Storyteller",

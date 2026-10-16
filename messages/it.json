@@ -1,8 +1,9 @@
 {
   "Header": {
     "languageSwitch": "Italiano",
-    "login": "Login",
-    "logout": "Logout"
+    "login": "Accedi",
+    "logout": "Esci",
+    "myStories": "Le mie storie"
   },
   "Login": {
     "headTitle": "Accedi / Storyteller",

@@ -1,3 +1,9 @@
+.linkButton {
+  @include button-style;
+  text-decoration: none;
+  display: inline-block;
+}
+
 .main {
   display: flex;
   align-items: center;
