@@ -13,6 +13,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { useUser } from "@/hooks/useUser";
 import { supabase } from "@/lib/supabase";
 import { useGoToLogin } from "@/hooks/useGoToLogin";
+import { useStories } from "@/hooks/useStories";
 
 export default function Home() {
   const [age, setAge] = useState("");
@@ -30,6 +31,7 @@ export default function Home() {
   const locale = useLocale();
   const user = useUser();
   const goToLogin = useGoToLogin();
+  const { stories, loadStories } = useStories();
 
   const translatedAges = ageList.map((item) => ({
     value: item.value,
@@ -85,6 +87,7 @@ export default function Home() {
       setSaveError(true);
     } else {
       setSaved(true);
+      loadStories();
     }
   };
 
