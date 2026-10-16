@@ -8,6 +8,8 @@ import { useTranslations, useLocale } from "next-intl";
 export default function Stories() {
   const { stories } = useStories();
   const tStories = useTranslations("Stories");
+  const tAge = useTranslations("Ages");
+  const tTheme = useTranslations("Themes");
   const locale = useLocale();
 
   return (
@@ -20,15 +22,22 @@ export default function Stories() {
       <main className={style.main}>
         <Header logo={"Storyteller"} />
         <div className={style.content}>
-          <h1>{tStories("h1")}</h1>
-          <ul className={style.storyList}>
+          <h1 className={style.title}>{tStories("h1")}</h1>
+          <ul role="list" className={style.storyList}>
             {stories.map((story) => (
               <li key={story.id}>
-                {story.title}
-                {story.content}
-                {story.age_range}
-                {story.theme}
-                {new Date(story.created_at).toLocaleDateString(locale)}
+                <details className={style.details}>
+                  <summary className={style.summary}>
+                    <span className={style.storyTitle}>{story.title}</span>
+                    <span>
+                      {tAge(story.age_range)} · {tTheme(story.theme)}
+                    </span>
+                    <span>
+                      {new Date(story.created_at).toLocaleDateString(locale)}
+                    </span>
+                  </summary>
+                  <p className={style.storyContent}>{story.content}</p>
+                </details>
               </li>
             ))}
           </ul>

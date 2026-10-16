@@ -4,8 +4,34 @@
   .content {
     padding: 20px;
 
-    .storiyList {
-      display: flex;
+    .title {
+      text-align: center;
+    }
+    .storyList {
+      list-style: none;
+      padding: 20px;
+
+      .details {
+        padding: 12px;
+      }
+
+      .summary {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .storyTitle {
+          font-weight: 600;
+          font-size: 22px;
+        }
+      }
+
+      .storyContent {
+        margin-top: 10px;
+        font-weight: 500;
+        font-size: 18px;
+        white-space: pre-line;
+      }
     }
   }
 }
