@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useUser } from "./useUser";
 
-type Story = {
+export type Story = {
   id: string;
   title: string;
   content: string;

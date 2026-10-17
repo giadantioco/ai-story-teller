@@ -26,6 +26,7 @@
     "generateErr": "Errore durante la generazione della storia",
     "save": "Salva storia",
     "saved": "Salvata ✓",
+    "saveErr": "Errore salvataggio storia",
     "logToSave": "Accedi per salvare le tue storie! <3"
   },
   "Stories": {

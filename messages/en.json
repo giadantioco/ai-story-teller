@@ -26,6 +26,7 @@
     "generateErr": "Error while generating story",
     "save": "Save story",
     "saved": "Saved ✓",
+    "saveErr": "Error while saving story",
     "logToSave": "Login to save your stories! <3"
   },
   "Stories": {

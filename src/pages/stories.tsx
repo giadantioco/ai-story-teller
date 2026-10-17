@@ -7,6 +7,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { useUser } from "@/hooks/useUser";
 import Button from "@/components/Atoms/Button/Button";
 import { useGoToLogin } from "@/hooks/useGoToLogin";
+import Link from "next/link";
 
 export default function Stories() {
   const { stories } = useStories();
@@ -29,24 +30,33 @@ export default function Stories() {
         <div className={style.content}>
           <h1 className={style.title}>{tStories("h1")}</h1>
           {user ? (
-            <ul role="list" className={style.storyList}>
-              {stories.map((story) => (
-                <li key={story.id}>
-                  <details className={style.details}>
-                    <summary className={style.summary}>
-                      <span className={style.storyTitle}>{story.title}</span>
-                      <span>
-                        {tAge(story.age_range)} · {tTheme(story.theme)}
-                      </span>
-                      <span>
-                        {new Date(story.created_at).toLocaleDateString(locale)}
-                      </span>
-                    </summary>
-                    <p className={style.storyContent}>{story.content}</p>
-                  </details>
-                </li>
-              ))}
-            </ul>
+            stories.length > 0 ? (
+              <ul role="list" className={style.storyList}>
+                {stories.map((story) => (
+                  <li key={story.id}>
+                    <details className={style.details}>
+                      <summary className={style.summary}>
+                        <span className={style.storyTitle}>{story.title}</span>
+                        <span>
+                          {tAge(story.age_range)} · {tTheme(story.theme)}
+                        </span>
+                        <span>
+                          {new Date(story.created_at).toLocaleDateString(locale)}
+                        </span>
+                      </summary>
+                      <p className={style.storyContent}>{story.content}</p>
+                    </details>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div className={style.emptyCase}>
+                <p>{tStories("emptyStories")}</p>
+                <Link href={"/"} className={style.emptyCase}>
+                  {tStories("goToLogin")}
+                </Link>
+              </div>
+            )
           ) : (
             <div className={style.emptyCase}>
               <h3>{tStories("logoutTitle")}</h3>

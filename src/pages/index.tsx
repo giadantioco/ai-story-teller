@@ -14,6 +14,8 @@ import { useUser } from "@/hooks/useUser";
 import { supabase } from "@/lib/supabase";
 import { useGoToLogin } from "@/hooks/useGoToLogin";
 import { useStories } from "@/hooks/useStories";
+import { StoryCard } from "@/components/Molecules/StoryCard/StoryCard";
+
 
 export default function Home() {
   const [age, setAge] = useState("");
@@ -157,14 +159,18 @@ export default function Home() {
                 <h3>{title}</h3>
                 <p>{story}</p>
                 {user ? (
-                  <Button
-                    label={saved ? t("saved") : t("save")}
-                    onClick={handleSave}
-                    disabled={saved}
-                  />
+                  <>
+                    <Button
+                      label={saved ? t("saved") : t("save")}
+                      onClick={handleSave}
+                      disabled={saved}
+                    />
+                    {saveError && <p>{t("saveErr")}</p>}
+                  </>
                 ) : (
                   <Button label={t("logToSave")} onClick={goToLogin} />
                 )}
+
               </div>
             )}
           </WindowBox>
