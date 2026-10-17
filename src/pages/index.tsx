@@ -174,6 +174,12 @@ export default function Home() {
               </div>
             )}
           </WindowBox>
+          <section>
+            <h2>Saved Stories</h2>
+            {stories.map((story) => (
+              <StoryCard key={story.id} story={story} />
+            ))}
+          </section>
         </div>
       </main>
     </>
