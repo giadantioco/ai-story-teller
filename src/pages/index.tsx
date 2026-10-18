@@ -14,8 +14,7 @@ import { useUser } from "@/hooks/useUser";
 import { supabase } from "@/lib/supabase";
 import { useGoToLogin } from "@/hooks/useGoToLogin";
 import { useStories } from "@/hooks/useStories";
-import { StoryCard } from "@/components/Molecules/StoryCard/StoryCard";
-
+import { StoriesSection } from "@/components/Organism/StoriesSection/StoriesSection";
 
 export default function Home() {
   const [age, setAge] = useState("");
@@ -174,12 +173,11 @@ export default function Home() {
               </div>
             )}
           </WindowBox>
-          <section>
-            <h2>Saved Stories</h2>
-            {stories.map((story) => (
-              <StoryCard key={story.id} story={story} />
-            ))}
-          </section>
+          {user ? (
+            <StoriesSection stories={stories} />
+          ) : (
+            <p>Login to see your saved stories</p>
+          )}
         </div>
       </main>
     </>
