@@ -5,7 +5,7 @@ import { ChangeEvent, Dispatch, SetStateAction } from "react";
 interface SelectBoxProps {
   label: string;
   list: ListOption[];
-  setAction: Dispatch<SetStateAction<string>>;
+  setAction: (value: string) => void;
 }
 
 const SelectBox = (props: SelectBoxProps) => {
