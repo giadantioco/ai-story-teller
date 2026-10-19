@@ -7,7 +7,7 @@ const nextConfig = {
   },
   sassOptions: {
     includePaths: ["src/styles"],
-    prependData: `@import "./src/styles/default/";`,
+    prependData: `@use "./src/styles/default" as *;`,
   },
 };
 

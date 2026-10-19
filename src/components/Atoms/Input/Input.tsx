@@ -3,7 +3,7 @@ import style from "./Input.module.scss";
 
 interface InputProps {
   value: string;
-  setValue: Dispatch<SetStateAction<string>>;
+  setValue: (value: string) => void;
 }
 
 function Input(props: InputProps) {

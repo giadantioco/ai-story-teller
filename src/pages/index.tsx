@@ -2,17 +2,17 @@ import Head from "next/head";
 import style from "@/styles/Home.module.scss";
 import Header from "@/components/Molecules/Header/Header";
 import WindowBox from "@/components/Organism/Window/WindowBox";
-import InputBox from "@/components/Molecules/InputBox/InputBox";
 import { useState } from "react";
-import SelectBox from "@/components/Molecules/SelectBox/SelectBox";
 import { ageList, themeList } from "@/constants/common";
-import Button from "@/components/Atoms/Button/Button";
 import Toast from "@/components/Atoms/Toast/Toast";
 import type { GetStaticPropsContext } from "next";
 import { useTranslations, useLocale } from "next-intl";
 import { useUser } from "@/hooks/useUser";
 import { supabase } from "@/lib/supabase";
-import { useGoToLogin } from "@/hooks/useGoToLogin";
+import { useStories } from "@/hooks/useStories";
+import { StoriesSection } from "@/components/Organism/StoriesSection/StoriesSection";
+import { StoryResult } from "@/components/Organism/StoryResult/StoryResult";
+import { StoryForm } from "@/components/Organism/StoryForm/StoryForm";
 
 export default function Home() {
   const [age, setAge] = useState("");
@@ -25,21 +25,9 @@ export default function Home() {
   const [saved, setSaved] = useState(false);
   const [saveError, setSaveError] = useState(false);
   const t = useTranslations("Home");
-  const tAge = useTranslations("Ages");
-  const tTheme = useTranslations("Themes");
   const locale = useLocale();
   const user = useUser();
-  const goToLogin = useGoToLogin();
-
-  const translatedAges = ageList.map((item) => ({
-    value: item.value,
-    label: tAge(item.value),
-  }));
-
-  const translatedThemes = themeList.map((item) => ({
-    value: item.value,
-    label: tTheme(item.value),
-  }));
+  const { stories, loadStories } = useStories();
 
   const handleGenerate = async () => {
     setLoading(true);
@@ -85,6 +73,7 @@ export default function Home() {
       setSaveError(true);
     } else {
       setSaved(true);
+      loadStories();
     }
   };
 
@@ -111,38 +100,8 @@ export default function Home() {
             />
           )}
           <WindowBox title={t("boxTitle")}>
-            <div className={style.container}>
-              <SelectBox
-                label={t("boxAge")}
-                list={translatedAges}
-                setAction={setAge}
-              />
-              <SelectBox
-                label={t("boxTheme")}
-                list={translatedThemes}
-                setAction={setTheme}
-              />
-              <InputBox
-                label={t("boxProtagonist")}
-                value={protagonist}
-                setValue={setProtagonist}
-              />
-              <InputBox
-                label={t("boxFriend")}
-                value={friend}
-                setValue={setFriend}
-              />
-              <Button
-                label={t("generate")}
-                onClick={handleGenerate}
-                disabled={
-                  age.trim().length <= 0 ||
-                  theme.trim().length <= 0 ||
-                  protagonist.trim().length <= 0 ||
-                  loading
-                }
-              />
-            </div>
+            <StoryForm age={age} theme={theme} protagonist={protagonist} friend={friend} setAge={setAge} setTheme={setTheme} setProtagonist={setProtagonist} setFriend={setFriend} loading={loading} onGenerate={handleGenerate} />
+
             {error && <p>{t("generateErr")}</p>}
             {loading && (
               <div className={style.loading}>
@@ -150,21 +109,14 @@ export default function Home() {
               </div>
             )}
             {!loading && response && (
-              <div className={style.result}>
-                <h3>{title}</h3>
-                <p>{story}</p>
-                {user ? (
-                  <Button
-                    label={saved ? t("saved") : t("save")}
-                    onClick={handleSave}
-                    disabled={saved}
-                  />
-                ) : (
-                  <Button label={t("logToSave")} onClick={goToLogin} />
-                )}
-              </div>
+              <StoryResult title={title} story={story} saved={saved} saveError={saveError} onSave={handleSave} />
             )}
           </WindowBox>
+          {user ? (
+            <StoriesSection stories={stories} />
+          ) : (
+            <p>Login to see your saved stories</p>
+          )}
         </div>
       </main>
     </>
