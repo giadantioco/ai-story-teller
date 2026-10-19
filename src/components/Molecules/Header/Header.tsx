@@ -59,9 +59,7 @@ function Header(props: HeaderProps) {
         {user ? (
           <>
             <span>{user.email}</span>
-            <Link href="/stories" className={style.linkButton}>
-              {t("myStories")}
-            </Link>
+
             <Button label={t("logout")} onClick={handleLogout} />
           </>
         ) : (

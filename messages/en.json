@@ -29,20 +29,6 @@
     "saveErr": "Error while saving story",
     "logToSave": "Login to save your stories! <3"
   },
-  "Form": {
-    "boxTitle": "Story Params",
-    "boxTheme": "Theme:",
-    "boxProtagonist": "Protagonist's name",
-    "boxFriend": "Friend's name (optional)",
-    "generate": "Generate"
-  },
-  "Stories": {
-    "headTitle": "My Stories | Storyteller",
-    "h1": "My Stories",
-    "goToLogin": "Go to login",
-    "logoutTitle": "Login to see your stories",
-    "emptyStories": "Nothing to show here :(."
-  },
   "Themes": {
     "animals": "Animals",
     "bedtime": "Bedtime",
