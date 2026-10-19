@@ -15,6 +15,7 @@ import { supabase } from "@/lib/supabase";
 import { useGoToLogin } from "@/hooks/useGoToLogin";
 import { useStories } from "@/hooks/useStories";
 import { StoriesSection } from "@/components/Organism/StoriesSection/StoriesSection";
+import { StoryResult } from "@/components/Organism/StoryResult/StoryResult";
 
 export default function Home() {
   const [age, setAge] = useState("");
@@ -153,7 +154,7 @@ export default function Home() {
                 <p>{t("divLoading")}</p>
               </div>
             )}
-            {!loading && response && (
+            {/* {!loading && response && (
               <div className={style.result}>
                 <h3>{title}</h3>
                 <p>{story}</p>
@@ -171,6 +172,9 @@ export default function Home() {
                 )}
 
               </div>
+            )} */}
+            {!loading && response && (
+              <StoryResult title={title} story={story} saved={saved} saveError={saveError} onSave={handleSave} />
             )}
           </WindowBox>
           {user ? (
