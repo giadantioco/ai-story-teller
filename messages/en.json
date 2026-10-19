@@ -2,9 +2,17 @@
   "Header": {
     "languageSwitch": "English",
     "login": "Login",
-    "logout": "Logout",
-    "myStories": "My Stories"
+    "logout": "Logout"
   },
+
+  "Home": {
+    "title": "Story Params",
+    "divLoading": "loading...",
+    "errorTitle": "Error",
+    "createErr": "Error while creating story",
+    "generateErr": "Error while generating story"
+  },
+
   "Login": {
     "headTitle": "Login / Storyteller",
     "btnLogin": "Login",
@@ -13,22 +21,7 @@
     "checkEmail": "Check your email :)",
     "errLogin": "Login error.."
   },
-  "Home": {
-    "boxTitle": "Story Params",
-    "boxAge": "Age:",
-    "boxTheme": "Theme:",
-    "boxProtagonist": "Protagonist's name",
-    "boxFriend": "Friend's name (optional)",
-    "generate": "Generate",
-    "divLoading": "loading...",
-    "errorTitle": "Error",
-    "createErr": "Error while creating story",
-    "generateErr": "Error while generating story",
-    "save": "Save story",
-    "saved": "Saved ✓",
-    "saveErr": "Error while saving story",
-    "logToSave": "Login to save your stories! <3"
-  },
+
   "Themes": {
     "animals": "Animals",
     "bedtime": "Bedtime",
@@ -36,9 +29,30 @@
     "magic": "Magic",
     "adventure": "Adventure"
   },
+
   "Ages": {
     "2-3": "2-3 years",
     "3-4": "3-4 years",
     "4-5": "4-5 years"
+  },
+
+  "StoryForm": {
+    "title": "Story Params",
+    "age": "Age:",
+    "theme": "Theme:",
+    "protagonist": "Protagonist's name",
+    "friend": "Friend's name (optional)",
+    "generate": "Generate"
+  },
+
+  "StoryResult": {
+    "save": "Save story",
+    "saved": "Saved ✓",
+    "saveErr": "Error while saving story",
+    "loginToSave": "Login to save your stories! <3"
+  },
+
+  "Stories": {
+    "title": "Saved Stories"
   }
 }

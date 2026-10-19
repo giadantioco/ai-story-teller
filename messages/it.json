@@ -2,9 +2,17 @@
   "Header": {
     "languageSwitch": "Italiano",
     "login": "Accedi",
-    "logout": "Esci",
-    "myStories": "Le mie storie"
+    "logout": "Esci"
   },
+
+  "Home": {
+    "title": "Parametri della storia",
+    "divLoading": "Sto riflettendo...",
+    "errorTitle": "Errore",
+    "createErr": "Impossibile creare la storia",
+    "generateErr": "Errore durante la generazione della storia"
+  },
+
   "Login": {
     "headTitle": "Accedi / Storyteller",
     "btnLogin": "Accedi",
@@ -13,22 +21,7 @@
     "checkEmail": "Controlla la tua mail :)",
     "errLogin": "Errore accesso"
   },
-  "Home": {
-    "boxTitle": "Parametri della storia",
-    "boxAge": "Fascia d'età:",
-    "boxTheme": "Tema:",
-    "boxProtagonist": "Nome del protagonista",
-    "boxFriend": "Nome dell'amico (opzionale)",
-    "generate": "Genera",
-    "divLoading": "Sto riflettendo...",
-    "errorTitle": "Errore",
-    "createErr": "Impossibile creare la storia",
-    "generateErr": "Errore durante la generazione della storia",
-    "save": "Salva storia",
-    "saved": "Salvata ✓",
-    "saveErr": "Errore salvataggio storia",
-    "logToSave": "Accedi per salvare le tue storie! <3"
-  },
+
   "Themes": {
     "animals": "Animali",
     "bedtime": "Buonanotte",
@@ -36,9 +29,30 @@
     "magic": "Magia",
     "adventure": "Avventura"
   },
+
   "Ages": {
     "2-3": "2-3 anni",
     "3-4": "3-4 anni",
     "4-5": "4-5 anni"
+  },
+
+  "StoryForm": {
+    "title": "Parametri della storia",
+    "age": "Fascia d'età:",
+    "theme": "Tema:",
+    "protagonist": "Nome del protagonista",
+    "friend": "Nome dell'amico (opzionale)",
+    "generate": "Genera"
+  },
+
+  "StoryResult": {
+    "save": "Salva storia",
+    "saved": "Salvata ✓",
+    "saveErr": "Errore salvataggio storia",
+    "loginToSave": "Accedi per salvare le tue storie! <3"
+  },
+
+  "Stories": {
+    "title": "Storie salvate"
   }
 }

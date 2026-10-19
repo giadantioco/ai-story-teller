@@ -98,7 +98,7 @@ export default function Home() {
               message={t("createErr")}
             />
           )}
-          <WindowBox title={t("boxTitle")}>
+          <WindowBox title={t("title")}>
             <StoryForm
               age={age}
               theme={theme}

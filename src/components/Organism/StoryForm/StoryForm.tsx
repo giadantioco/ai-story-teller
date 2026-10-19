@@ -31,7 +31,7 @@ export function StoryForm(props: StoryFormProps) {
     loading,
     onGenerate,
   } = props;
-  const t = useTranslations("Home");
+  const tStoryForm = useTranslations("StoryForm");
   const tAge = useTranslations("Ages");
   const tTheme = useTranslations("Themes");
 
@@ -47,20 +47,28 @@ export function StoryForm(props: StoryFormProps) {
 
   return (
     <div className={style.container}>
-      <SelectBox label={t("boxAge")} list={translatedAges} setAction={setAge} />
       <SelectBox
-        label={t("boxTheme")}
+        label={tStoryForm("age")}
+        list={translatedAges}
+        setAction={setAge}
+      />
+      <SelectBox
+        label={tStoryForm("theme")}
         list={translatedThemes}
         setAction={setTheme}
       />
       <InputBox
-        label={t("boxProtagonist")}
+        label={tStoryForm("protagonist")}
         value={protagonist}
         setValue={setProtagonist}
       />
-      <InputBox label={t("boxFriend")} value={friend} setValue={setFriend} />
+      <InputBox
+        label={tStoryForm("friend")}
+        value={friend}
+        setValue={setFriend}
+      />
       <Button
-        label={t("generate")}
+        label={tStoryForm("generate")}
         onClick={onGenerate}
         disabled={
           age.trim().length <= 0 ||
