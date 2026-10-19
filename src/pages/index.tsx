@@ -3,7 +3,6 @@ import style from "@/styles/Home.module.scss";
 import Header from "@/components/Molecules/Header/Header";
 import WindowBox from "@/components/Organism/Window/WindowBox";
 import { useState } from "react";
-import { ageList, themeList } from "@/constants/common";
 import Toast from "@/components/Atoms/Toast/Toast";
 import type { GetStaticPropsContext } from "next";
 import { useTranslations, useLocale } from "next-intl";
@@ -99,8 +98,19 @@ export default function Home() {
               message={t("createErr")}
             />
           )}
-          <WindowBox title={t("boxTitle")}>
-            <StoryForm age={age} theme={theme} protagonist={protagonist} friend={friend} setAge={setAge} setTheme={setTheme} setProtagonist={setProtagonist} setFriend={setFriend} loading={loading} onGenerate={handleGenerate} />
+          <WindowBox title={t("title")}>
+            <StoryForm
+              age={age}
+              theme={theme}
+              protagonist={protagonist}
+              friend={friend}
+              setAge={setAge}
+              setTheme={setTheme}
+              setProtagonist={setProtagonist}
+              setFriend={setFriend}
+              loading={loading}
+              onGenerate={handleGenerate}
+            />
 
             {error && <p>{t("generateErr")}</p>}
             {loading && (
@@ -109,7 +119,13 @@ export default function Home() {
               </div>
             )}
             {!loading && response && (
-              <StoryResult title={title} story={story} saved={saved} saveError={saveError} onSave={handleSave} />
+              <StoryResult
+                title={title}
+                story={story}
+                saved={saved}
+                saveError={saveError}
+                onSave={handleSave}
+              />
             )}
           </WindowBox>
           {user ? (

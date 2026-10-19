@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useUser } from "./useUser";
 
@@ -16,7 +16,7 @@ export function useStories() {
   const [stories, setStories] = useState<Story[]>([]);
   const user = useUser();
 
-  const loadStories = () => {
+  const loadStories = useCallback(() => {
     if (!user) {
       setStories([]);
       return;
@@ -26,14 +26,16 @@ export function useStories() {
       .select()
       .order("created_at", { ascending: false })
       .then(({ data, error }) => {
-        console.log(data);
         setStories(data ?? []);
+        if (error) {
+          console.error("Error:", error);
+        }
       });
-  };
+  }, [user]);
 
   useEffect(() => {
     loadStories();
-  }, [user]);
+  }, [loadStories]);
 
   return { stories, loadStories };
 }

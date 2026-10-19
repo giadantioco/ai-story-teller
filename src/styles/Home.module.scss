@@ -5,23 +5,6 @@
   .content {
     padding: 20px;
 
-    .container {
-      display: flex;
-      gap: 20px;
-    }
-
-    .result {
-      @include window-style(100%);
-      margin-top: rem(20px);
-      box-shadow: none;
-      padding: rem(20px);
-      white-space: pre-line;
-
-      button {
-        margin: 0 0 rem(10px) 0;
-      }
-    }
-
     button {
       margin: rem(10px);
     }
