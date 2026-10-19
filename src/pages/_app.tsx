@@ -1,7 +1,13 @@
 import "@/styles/globals.scss";
+import localFont from "next/font/local";
 import type { AppProps } from "next/app";
 import { NextIntlClientProvider } from "next-intl";
 import { useRouter } from "next/router";
+
+const suse = localFont({
+  src: "../../fonts/SUSE-VariableFont_wght.ttf",
+  variable: "--font-suse",
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -13,7 +19,9 @@ export default function App({ Component, pageProps }: AppProps) {
       messages={pageProps.messages}
       timeZone="Europe/Rome"
     >
-      <Component {...pageProps} />
+      <div className={`app ${suse.subset} ${suse.variable}`}>
+        <Component {...pageProps} />
+      </div>
     </NextIntlClientProvider>
   );
 }
