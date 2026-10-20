@@ -1,6 +1,7 @@
 import Head from "next/head";
 import style from "@/styles/Home.module.scss";
 import Header from "@/components/Molecules/Header/Header";
+import Footer from "@/components/Molecules/Footer/Footer";
 import WindowBox from "@/components/Organism/Window/WindowBox";
 import { useState } from "react";
 import Toast from "@/components/Atoms/Toast/Toast";
@@ -135,6 +136,7 @@ export default function Home() {
           )}
         </div>
       </main>
+      <Footer />
     </>
   );
 }
