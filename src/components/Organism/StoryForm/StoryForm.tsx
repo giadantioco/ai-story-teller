@@ -47,16 +47,20 @@ export function StoryForm(props: StoryFormProps) {
 
   return (
     <div className={style.container}>
-      <SelectBox
-        label={tStoryForm("age")}
-        list={translatedAges}
-        setAction={setAge}
-      />
-      <SelectBox
-        label={tStoryForm("theme")}
-        list={translatedThemes}
-        setAction={setTheme}
-      />
+      <p>{tStoryForm("eyebrown")}</p>
+      <h2>{tStoryForm("title")}</h2>
+      <div className={style.selectGroup}>
+        <SelectBox
+          label={tStoryForm("age")}
+          list={translatedAges}
+          setAction={setAge}
+        />
+        <SelectBox
+          label={tStoryForm("theme")}
+          list={translatedThemes}
+          setAction={setTheme}
+        />
+      </div>
       <InputBox
         label={tStoryForm("protagonist")}
         value={protagonist}

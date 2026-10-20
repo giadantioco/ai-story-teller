@@ -1,4 +1,16 @@
 .container {
+  background-color: var(--color-20);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  padding: rem(30px);
+  gap: 20px;
+
+  .selectGroup {
     display: flex;
     gap: 20px;
+  }
+  input {
+    width: 100%;
+  }
 }

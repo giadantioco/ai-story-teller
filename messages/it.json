@@ -6,7 +6,9 @@
   },
 
   "Home": {
-    "title": "Parametri della storia",
+    "eyebrown": "Ogni storia comincia con un nome.",
+    "title": "C'era una volta...",
+    "subTitle": "Dicci chi è il portagonista: alla magia pensiamo noi. ✨",
     "divLoading": "Sto riflettendo...",
     "errorTitle": "Errore",
     "createErr": "Impossibile creare la storia",
@@ -37,7 +39,8 @@
   },
 
   "StoryForm": {
-    "title": "Parametri della storia",
+    "eyebrown": "DETAGLI STORIA",
+    "title": "Crea la tua storia",
     "age": "Fascia d'età:",
     "theme": "Tema:",
     "protagonist": "Nome del protagonista",

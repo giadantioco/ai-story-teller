@@ -1,7 +1,8 @@
 .main {
   @include window-style();
-
-  h2 {
-    margin-bottom: rem(16px);
-  }
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  max-width: rem(600px);
+  margin-inline: auto;
 }

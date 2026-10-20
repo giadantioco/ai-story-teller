@@ -6,7 +6,9 @@
   },
 
   "Home": {
-    "title": "Story Params",
+    "eyebrown": "Every story starts with a name",
+    "title": "Once upon a time...",
+    "subTitle": "Tell us who the hero is: we'll take care of the magic ✨",
     "divLoading": "loading...",
     "errorTitle": "Error",
     "createErr": "Error while creating story",
@@ -37,7 +39,8 @@
   },
 
   "StoryForm": {
-    "title": "Story Params",
+    "eyebrown": "STORY DETAIL",
+    "title": "Create your story",
     "age": "Age:",
     "theme": "Theme:",
     "protagonist": "Protagonist's name",

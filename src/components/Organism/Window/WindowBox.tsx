@@ -10,8 +10,8 @@ function WindowBox(props: WindowProps) {
   const { title, children } = props;
   return (
     <div className={style.main}>
-      {title && <h2>{title} </h2>}
-      <div className={style.test}>{children}</div>
+      {title && <h2>{title}</h2>}
+      {children}
     </div>
   );
 }

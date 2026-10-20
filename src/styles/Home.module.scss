@@ -1,12 +1,18 @@
 .main {
   min-height: 90vh;
-  color: var(--color-100);
 
   .content {
-    padding: 20px;
+    padding: rem(20px);
+    padding-block-start: rem(50px);
 
-    button {
-      margin: rem(10px);
+    .titleContainer {
+      margin: 0 auto;
+      text-align: center;
+      padding: rem(30px);
+
+      h1 {
+        color: var(--primary);
+      }
     }
   }
 }

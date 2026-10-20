@@ -92,6 +92,11 @@ export default function Home() {
       <main className={style.main}>
         <Header logo={"Storyteller"} />
         <div className={style.content}>
+          <div className={style.titleContainer}>
+            <span>{t("eyebrown")}</span>
+            <h1>{t("title")}</h1>
+            <h3>{t("subTitle")}</h3>
+          </div>
           {error && (
             <Toast
               setAction={setError}
@@ -99,7 +104,7 @@ export default function Home() {
               message={t("createErr")}
             />
           )}
-          <WindowBox title={t("title")}>
+          <WindowBox>
             <StoryForm
               age={age}
               theme={theme}
