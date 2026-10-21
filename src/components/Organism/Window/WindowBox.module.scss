@@ -1,8 +1,13 @@
 .main {
   @include window-style();
+  display: grid;
   padding: 0;
   overflow: hidden;
   width: 100%;
-  max-width: rem(600px);
+  max-width: rem(800px);
   margin-inline: auto;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 2fr 4fr;
+  }
 }

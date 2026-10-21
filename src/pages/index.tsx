@@ -90,7 +90,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={style.main}>
-        <Header logo={"Storyteller"} />
+        <Header logoTitle={"Storyteller"} />
         <div className={style.content}>
           <div className={style.titleContainer}>
             <span>{t("eyebrown")}</span>
@@ -117,13 +117,6 @@ export default function Home() {
               loading={loading}
               onGenerate={handleGenerate}
             />
-
-            {error && <p>{t("generateErr")}</p>}
-            {loading && (
-              <div className={style.loading}>
-                <p>{t("divLoading")}</p>
-              </div>
-            )}
             {!loading && response && (
               <StoryResult
                 title={title}

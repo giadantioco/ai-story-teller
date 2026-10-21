@@ -5,6 +5,11 @@
   padding: rem(20px);
   white-space: pre-line;
 
+  @media (min-width: 768px) {
+    max-height: rem(400px);
+    overflow-y: auto;
+  }
+
   button {
     margin: 0 0 rem(10px) 0;
   }

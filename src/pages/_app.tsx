@@ -32,7 +32,9 @@ export default function App({ Component, pageProps }: AppProps) {
       messages={pageProps.messages}
       timeZone="Europe/Rome"
     >
-      <div className={`app ${sans.variable}`}>
+      <div
+        className={`app ${sans.variable} ${serif.variable} ${mono.variable}`}
+      >
         <Component {...pageProps} />
       </div>
     </NextIntlClientProvider>

@@ -72,7 +72,7 @@ export function StoryForm(props: StoryFormProps) {
         setValue={setFriend}
       />
       <Button
-        label={tStoryForm("generate")}
+        label={loading ? tStoryForm("loading") : tStoryForm("generate")}
         onClick={onGenerate}
         disabled={
           age.trim().length <= 0 ||

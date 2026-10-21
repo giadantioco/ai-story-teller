@@ -9,10 +9,8 @@
     "eyebrown": "Every story starts with a name",
     "title": "Once upon a time...",
     "subTitle": "Tell us who the hero is: we'll take care of the magic ✨",
-    "divLoading": "loading...",
     "errorTitle": "Error",
-    "createErr": "Error while creating story",
-    "generateErr": "Error while generating story"
+    "createErr": "Error while creating story"
   },
 
   "Login": {
@@ -45,7 +43,8 @@
     "theme": "Theme:",
     "protagonist": "Protagonist's name",
     "friend": "Friend's name (optional)",
-    "generate": "Generate"
+    "generate": "Generate",
+    "loading": "Loading..."
   },
 
   "StoryResult": {

@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useGoToLogin } from "@/hooks/useGoToLogin";
 
 interface HeaderProps {
-  logo: string;
+  logoTitle: string;
 }
 
 function Header(props: HeaderProps) {
@@ -17,7 +17,7 @@ function Header(props: HeaderProps) {
   const user = useUser();
   const goToLogin = useGoToLogin();
 
-  const { logo } = props;
+  const { logoTitle } = props;
   const router = useRouter();
   const currentPage = router.asPath;
   const locale = router.locale;
@@ -31,11 +31,12 @@ function Header(props: HeaderProps) {
   };
 
   return (
-    <div className={style.main}>
-      <Link href={"/"} className={style.logo}>
-        {logo}
+    <header className={style.main}>
+      <Link href={"/"} className={style.logoContainer}>
+        <img src={"/logos.svg"} className={style.logoImg} alt={"logo-image"} />
+        <span className={style.logoTitle}>{logoTitle}</span>
       </Link>
-      <div className={style.nav}>
+      <nav className={style.nav}>
         <div className={style.switch}>
           <span
             className={locale === "en" ? style.activeLang : ""}
@@ -57,16 +58,12 @@ function Header(props: HeaderProps) {
         </div>
 
         {user ? (
-          <>
-            <span>{user.email}</span>
-
-            <Button label={t("logout")} onClick={handleLogout} />
-          </>
+          <Button label={t("logout")} onClick={handleLogout} />
         ) : (
           <Button label={t("login")} onClick={goToLogin} />
         )}
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 }
 

@@ -9,10 +9,8 @@
     "eyebrown": "Ogni storia comincia con un nome.",
     "title": "C'era una volta...",
     "subTitle": "Dicci chi è il portagonista: alla magia pensiamo noi. ✨",
-    "divLoading": "Sto riflettendo...",
     "errorTitle": "Errore",
-    "createErr": "Impossibile creare la storia",
-    "generateErr": "Errore durante la generazione della storia"
+    "createErr": "Impossibile creare la storia"
   },
 
   "Login": {
@@ -21,7 +19,8 @@
     "email": "Email",
     "changeEmail": "Cambia indirizzo email",
     "checkEmail": "Controlla la tua mail :)",
-    "errLogin": "Errore accesso"
+    "errLogin": "Errore accesso",
+    "loading": "Caricamento..."
   },
 
   "Themes": {
