@@ -4,6 +4,7 @@
   box-shadow: none;
   padding: rem(20px);
   white-space: pre-line;
+  scrollbar-width: 80px;
 
   @media (min-width: 768px) {
     max-height: rem(400px);

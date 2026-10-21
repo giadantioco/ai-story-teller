@@ -1,9 +1,6 @@
 .main {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: rem(20px);
-  height: rem(120px);
+  height: rem(100px);
   width: 100%;
   position: relative;
 
@@ -11,11 +8,19 @@
     content: "";
     position: absolute;
     bottom: 0;
-    height: 1px;
+    height: 2px;
     background-color: var(--primary);
+    opacity: 0.3;
     left: rem(20px);
     right: rem(20px);
   }
+}
+.inner {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logoContainer {
@@ -48,6 +53,16 @@
   gap: 30px;
 
   > button {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: rem(16px);
     min-width: rem(90px);
+  }
+
+  span {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: rem(10px);
+    line-height: 19.5px;
   }
 }

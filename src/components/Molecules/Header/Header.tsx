@@ -32,37 +32,44 @@ function Header(props: HeaderProps) {
 
   return (
     <header className={style.main}>
-      <Link href={"/"} className={style.logoContainer}>
-        <img src={"/logos.svg"} className={style.logoImg} alt={"logo-image"} />
-        <span className={style.logoTitle}>{logoTitle}</span>
-      </Link>
-      <nav className={style.nav}>
-        <div className={style.switch}>
-          <span
-            className={locale === "en" ? style.activeLang : ""}
-            aria-hidden="true"
-          >
-            EN
-          </span>
-          <Switch
-            label={t("languageSwitch")}
-            active={locale === "it"}
-            setActive={changeLanguage}
+      <div className={style.inner}>
+        <Link href={"/"} className={style.logoContainer}>
+          <img
+            src={"/logos.svg"}
+            className={style.logoImg}
+            alt={"logo-image"}
           />
-          <span
-            className={locale === "it" ? style.activeLang : ""}
-            aria-hidden="true"
-          >
-            IT
-          </span>
-        </div>
+          <span className={style.logoTitle}>{logoTitle}</span>
+        </Link>
 
-        {user ? (
-          <Button label={t("logout")} onClick={handleLogout} />
-        ) : (
-          <Button label={t("login")} onClick={goToLogin} />
-        )}
-      </nav>
+        <nav className={style.nav}>
+          <div className={style.switch}>
+            <span
+              className={locale === "en" ? style.activeLang : ""}
+              aria-hidden="true"
+            >
+              EN
+            </span>
+            <Switch
+              label={t("languageSwitch")}
+              active={locale === "it"}
+              setActive={changeLanguage}
+            />
+            <span
+              className={locale === "it" ? style.activeLang : ""}
+              aria-hidden="true"
+            >
+              IT
+            </span>
+          </div>
+
+          {user ? (
+            <Button label={t("logout")} onClick={handleLogout} />
+          ) : (
+            <Button label={t("login")} onClick={goToLogin} />
+          )}
+        </nav>
+      </div>
     </header>
   );
 }

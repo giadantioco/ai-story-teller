@@ -6,9 +6,9 @@
   },
 
   "Home": {
-    "eyebrown": "Ogni storia comincia con un nome.",
-    "title": "C'era una volta...",
-    "subTitle": "Dicci chi è il portagonista: alla magia pensiamo noi. ✨",
+    "eyebrow": "Storielle per i vostri piccoli",
+    "title": "Crea la tua storia.",
+    "subTitle": "Dì a Storiteller chi è il portagonista: alla resto ci pensa lui. ✨",
     "errorTitle": "Errore",
     "createErr": "Impossibile creare la storia"
   },

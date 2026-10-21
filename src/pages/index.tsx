@@ -93,9 +93,9 @@ export default function Home() {
         <Header logoTitle={"Storyteller"} />
         <div className={style.content}>
           <div className={style.titleContainer}>
-            <span>{t("eyebrown")}</span>
+            <p>{t("eyebrow")}</p>
             <h1>{t("title")}</h1>
-            <h3>{t("subTitle")}</h3>
+            <h2>{t("subTitle")}</h2>
           </div>
           {error && (
             <Toast

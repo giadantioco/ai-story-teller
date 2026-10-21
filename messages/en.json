@@ -6,9 +6,9 @@
   },
 
   "Home": {
-    "eyebrown": "Every story starts with a name",
-    "title": "Once upon a time...",
-    "subTitle": "Tell us who the hero is: we'll take care of the magic ✨",
+    "eyebrow": "A little story, for your little one",
+    "title": "Create your story.",
+    "subTitle": "Tell Storyteller who the hero is: it'll take care of the rest. ✨",
     "errorTitle": "Error",
     "createErr": "Error while creating story"
   },
