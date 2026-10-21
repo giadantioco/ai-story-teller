@@ -1,16 +1,32 @@
 .container {
-  background-color: var(--color-20);
-  color: black;
-  display: flex;
-  flex-direction: column;
-  padding: rem(30px);
-  gap: 20px;
+  padding: rem(20px);
+
+  p {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: rem(12px);
+    line-height: 18px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .inner {
+    display: flex;
+    flex-direction: column;
+    gap: rem(15px);
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: rem(13px);
+    line-height: 19.5px;
+  }
 
   .selectGroup {
     display: flex;
     gap: 20px;
   }
+
   input {
     width: 100%;
+    min-height: 50px;
   }
 }

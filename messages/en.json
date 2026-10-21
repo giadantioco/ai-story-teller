@@ -37,18 +37,17 @@
   },
 
   "StoryForm": {
-    "eyebrown": "STORY DETAIL",
-    "title": "Create your story",
-    "age": "Age:",
-    "theme": "Theme:",
+    "eyebrown": "story details",
+    "age": "Age",
+    "theme": "Theme",
     "protagonist": "Protagonist's name",
-    "friend": "Friend's name (optional)",
+    "friend": "Friend's name",
     "generate": "Generate",
     "loading": "Loading..."
   },
 
   "StoryResult": {
-    "save": "Save story",
+    "save": "Save <3",
     "saved": "Saved ✓",
     "saveErr": "Error while saving story",
     "loginToSave": "Login to save your stories! <3"

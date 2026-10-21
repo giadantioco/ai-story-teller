@@ -38,17 +38,17 @@
   },
 
   "StoryForm": {
-    "eyebrown": "DETAGLI STORIA",
-    "title": "Crea la tua storia",
-    "age": "Fascia d'età:",
-    "theme": "Tema:",
-    "protagonist": "Nome del protagonista",
-    "friend": "Nome dell'amico (opzionale)",
-    "generate": "Genera"
+    "eyebrown": "dettagli storia",
+    "age": "Età",
+    "theme": "Tema",
+    "protagonist": "Nome protagonista",
+    "friend": "Nome dell'amico",
+    "generate": "Genera",
+    "loading": "Generando..."
   },
 
   "StoryResult": {
-    "save": "Salva storia",
+    "save": "Salva <3",
     "saved": "Salvata ✓",
     "saveErr": "Errore salvataggio storia",
     "loginToSave": "Accedi per salvare le tue storie! <3"

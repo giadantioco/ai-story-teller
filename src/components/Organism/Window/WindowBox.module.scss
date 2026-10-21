@@ -5,6 +5,7 @@
   overflow: hidden;
   max-width: none;
   border: 1px solid var(--color-20);
+  background-color: var(--color-20);
 
   @media (min-width: rem(1024px)) {
     &:has(> :nth-child(2)) {
