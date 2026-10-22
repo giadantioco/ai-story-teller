@@ -1,5 +1,6 @@
 import Input from "@/components/Atoms/Input/Input";
 import style from "./InputBox.module.scss";
+import { useId } from "react";
 
 interface InputBoxProps {
   label: string;
@@ -9,10 +10,12 @@ interface InputBoxProps {
 
 function InputBox(props: InputBoxProps) {
   const { label, value, setValue } = props;
+  const id = useId();
+
   return (
     <div className={style.main}>
-      <h3>{label}</h3>
-      <Input value={value} setValue={setValue}></Input>
+      <label htmlFor={id}>{label}</label>s
+      <Input id={id} value={value} setValue={setValue}></Input>
     </div>
   );
 }

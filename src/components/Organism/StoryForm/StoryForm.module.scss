@@ -23,10 +23,21 @@
   .selectGroup {
     display: flex;
     gap: 20px;
+
+    select {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: rem(13px);
+      line-height: 20px;
+      color: var(--primary);
+      width: 100%;
+      min-height: rem(47px);
+    }
   }
 
   input {
     width: 100%;
-    min-height: 50px;
+    min-height: rem(47px);
+    border-radius: 11px;
   }
 }
