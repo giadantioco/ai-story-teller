@@ -1,13 +1,25 @@
 .app {
-  font-family: var(--font-suse), sans-serif;
+  font-family: var(--font-sans), sans-serif;
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif), serif;
+  }
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
 }
 
 :root {
   --primary: #fd5569;
   --color-0: #ffffff;
-  --color-20: #dddcdc;
+  --color-20: #e8e8e8;
   --color-80: #121212;
-  --color-100: #fd5569;
   --content-width: #{rem(1200px)};
 }
 

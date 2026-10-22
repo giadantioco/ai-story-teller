@@ -1,43 +1,57 @@
 .container {
   padding: rem(20px);
-
-  p {
-    font-family: var(--font-sans);
-    font-weight: 700;
-    font-size: rem(12px);
-    line-height: 18px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
+  background-color: var(--color-20);
 
   .inner {
     display: flex;
     flex-direction: column;
     gap: rem(15px);
-    font-family: var(--font-sans);
-    font-weight: 700;
-    font-size: rem(13px);
-    line-height: 19.5px;
-  }
 
-  .selectGroup {
-    display: flex;
-    gap: 20px;
-
-    select {
-      font-family: var(--font-sans);
-      font-weight: 400;
-      font-size: rem(13px);
-      line-height: 20px;
-      color: var(--primary);
-      width: 100%;
-      min-height: rem(47px);
+    .eyebrow {
+      font-weight: 700;
+      font-size: rem(12px);
+      line-height: 1.5;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
-  }
 
-  input {
-    width: 100%;
-    min-height: rem(47px);
-    border-radius: 11px;
+    .selectGroup {
+      display: flex;
+      gap: rem(20px);
+
+      > * {
+        flex: 1;
+      }
+    }
+
+    label {
+      display: block;
+      margin-bottom: rem(5px);
+      font-weight: 700;
+      font-size: rem(13px);
+      line-height: 1.5;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: rem(45px);
+      padding: 0 rem(12px);
+      border: none;
+      border-radius: rem(8px);
+      background-color: var(--color-0);
+      font-size: rem(13px);
+      color: var(--primary);
+
+      &:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+      }
+    }
+
+    button {
+      width: 100%;
+      margin-top: rem(10px);
+    }
   }
 }

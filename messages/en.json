@@ -40,8 +40,8 @@
     "eyebrown": "story details",
     "age": "Age",
     "theme": "Theme",
-    "protagonist": "Protagonist's name",
-    "friend": "Friend's name",
+    "protagonist": "Protagonist",
+    "friend": "Protagonist's friend",
     "generate": "Generate",
     "loading": "Loading..."
   },

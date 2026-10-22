@@ -20,21 +20,23 @@ export function StoryResult(props: StoryResultProps) {
 
   return (
     <div className={style.result}>
-      <h3>{title}</h3>
-      <p>{story}</p>
-      <div className={style.result}>
-        {user ? (
-          <>
-            <Button
-              label={saved ? tStoryResult("saved") : tStoryResult("save")}
-              onClick={onSave}
-              disabled={saved}
-            />
-            {saveError && <p>{tStoryResult("saveErr")}</p>}
-          </>
-        ) : (
-          <Button label={tStoryResult("loginToSave")} onClick={goToLogin} />
-        )}
+      <div className={style.scrollArea}>
+        <h3>{title}</h3>
+        <p>{story}</p>
+        <div className={style.result}>
+          {user ? (
+            <>
+              <Button
+                label={saved ? tStoryResult("saved") : tStoryResult("save")}
+                onClick={onSave}
+                disabled={saved}
+              />
+              {saveError && <p>{tStoryResult("saveErr")}</p>}
+            </>
+          ) : (
+            <Button label={tStoryResult("loginToSave")} onClick={goToLogin} />
+          )}
+        </div>
       </div>
     </div>
   );

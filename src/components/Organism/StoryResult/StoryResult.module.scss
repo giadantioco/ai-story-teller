@@ -1,9 +1,43 @@
 .result {
+  background-color: var(--color-0);
   padding: rem(20px);
   white-space: pre-line;
-  scrollbar-width: 80px;
 
-  button {
-    margin: 0 0 rem(10px) 0;
+  .scrollArea {
+    padding-right: rem(15px); // spazio tra testo e scrollbar
+  }
+
+  @media (min-width: rem(1024px)) {
+    contain: size;
+    display: flex;
+    flex-direction: column;
+    gap: rem(16px);
+
+    .scrollArea {
+      min-height: 0;
+      overflow-y: auto;
+
+      // Chrome, Edge, Safari
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: var(--color-20);
+        border-radius: 999px;
+        margin-block: rem(20px);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 999px;
+      }
+
+      // Firefox
+      @supports not selector(::-webkit-scrollbar) {
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary) var(--color-20);
+      }
+    }
   }
 }

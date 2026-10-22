@@ -48,7 +48,7 @@ export function StoryForm(props: StoryFormProps) {
   return (
     <div className={style.container}>
       <div className={style.inner}>
-        <p>{tStoryForm("eyebrown")}</p>
+        <p className={style.eyebrow}>{tStoryForm("eyebrown")}</p>
         <div className={style.selectGroup}>
           <SelectBox
             label={tStoryForm("age")}

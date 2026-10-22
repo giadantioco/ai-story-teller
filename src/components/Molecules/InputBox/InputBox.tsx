@@ -14,7 +14,7 @@ function InputBox(props: InputBoxProps) {
 
   return (
     <div className={style.main}>
-      <label htmlFor={id}>{label}</label>s
+      <label htmlFor={id}>{label}</label>
       <Input id={id} value={value} setValue={setValue}></Input>
     </div>
   );
