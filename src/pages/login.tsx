@@ -38,7 +38,7 @@ export default function Login() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={style.main}>
-        <Header logo={"Storyteller"} />
+        <Header logoTitle={"Storyteller"} />
         <div className={style.content}>
           {sent ? (
             <>
