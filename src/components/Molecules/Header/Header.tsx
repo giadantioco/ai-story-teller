@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useGoToLogin } from "@/hooks/useGoToLogin";
 
 interface HeaderProps {
-  logo: string;
+  logoTitle: string;
 }
 
 function Header(props: HeaderProps) {
@@ -17,7 +17,7 @@ function Header(props: HeaderProps) {
   const user = useUser();
   const goToLogin = useGoToLogin();
 
-  const { logo } = props;
+  const { logoTitle } = props;
   const router = useRouter();
   const currentPage = router.asPath;
   const locale = router.locale;
@@ -31,42 +31,46 @@ function Header(props: HeaderProps) {
   };
 
   return (
-    <div className={style.main}>
-      <Link href={"/"} className={style.logo}>
-        {logo}
-      </Link>
-      <div className={style.nav}>
-        <div className={style.switch}>
-          <span
-            className={locale === "en" ? style.activeLang : ""}
-            aria-hidden="true"
-          >
-            EN
-          </span>
-          <Switch
-            label={t("languageSwitch")}
-            active={locale === "it"}
-            setActive={changeLanguage}
+    <header className={style.main}>
+      <div className={style.inner}>
+        <Link href={"/"} className={style.logoContainer}>
+          <img
+            src={"/logos.svg"}
+            className={style.logoImg}
+            alt={"logo-image"}
           />
-          <span
-            className={locale === "it" ? style.activeLang : ""}
-            aria-hidden="true"
-          >
-            IT
-          </span>
-        </div>
+          <span className={style.logoTitle}>{logoTitle}</span>
+        </Link>
 
-        {user ? (
-          <>
-            <span>{user.email}</span>
+        <nav className={style.nav}>
+          <div className={style.switch}>
+            <span
+              className={locale === "en" ? style.activeLang : ""}
+              aria-hidden="true"
+            >
+              EN
+            </span>
+            <Switch
+              label={t("languageSwitch")}
+              active={locale === "it"}
+              setActive={changeLanguage}
+            />
+            <span
+              className={locale === "it" ? style.activeLang : ""}
+              aria-hidden="true"
+            >
+              IT
+            </span>
+          </div>
 
+          {user ? (
             <Button label={t("logout")} onClick={handleLogout} />
-          </>
-        ) : (
-          <Button label={t("login")} onClick={goToLogin} />
-        )}
+          ) : (
+            <Button label={t("login")} onClick={goToLogin} />
+          )}
+        </nav>
       </div>
-    </div>
+    </header>
   );
 }
 

@@ -1,11 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap");
+.app {
+  font-family: var(--font-sans), sans-serif;
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif), serif;
+  }
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
 
 :root {
-  --primary: #ffeac5;
-  --color-0: #ffdbb5;
-  --color-20: #ad8b66;
-  --color-80: #6c4e31;
-  --color-100: #603f26;
+  --primary: #fd5569;
+  --color-0: #ffffff;
+  --color-20: #e8e8e8;
+  --color-80: #121212;
+  --content-width: #{rem(1200px)};
 }
 
 * {

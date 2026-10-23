@@ -1,6 +1,6 @@
 import { ListOption } from "@/types/common";
 import style from "./SelectBox.module.scss";
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { ChangeEvent, useId } from "react";
 
 interface SelectBoxProps {
   label: string;
@@ -10,6 +10,7 @@ interface SelectBoxProps {
 
 const SelectBox = (props: SelectBoxProps) => {
   const { label, list, setAction } = props;
+  const id = useId();
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setAction(e.target.value);
@@ -17,8 +18,8 @@ const SelectBox = (props: SelectBoxProps) => {
 
   return (
     <div className={style.main}>
-      <h3>{label}</h3>
-      <select id="select" onChange={handleChange}>
+      <label htmlFor={id}>{label}</label>
+      <select id={id} onChange={handleChange}>
         <option value="" hidden>
           seleziona
         </option>

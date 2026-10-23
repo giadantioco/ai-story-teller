@@ -1,15 +1,16 @@
-import { Dispatch, SetStateAction } from "react";
 import style from "./Input.module.scss";
 
 interface InputProps {
+  id?: string;
   value: string;
   setValue: (value: string) => void;
 }
 
 function Input(props: InputProps) {
-  const { value, setValue } = props;
+  const { id, value, setValue } = props;
   return (
     <input
+      id={id}
       className={style.input}
       value={value}
       onChange={(e) => setValue(e.target.value)}

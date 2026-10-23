@@ -1,12 +1,41 @@
 .main {
   min-height: 90vh;
-  color: var(--color-100);
 
   .content {
-    padding: 20px;
+    max-width: var(--content-width);
+    margin-inline: auto;
+    padding: rem(20px);
+    padding-block-start: rem(50px);
 
-    button {
-      margin: rem(10px);
+    .titleContainer {
+      margin: 0 auto;
+      text-align: center;
+      padding: rem(30px);
+
+      p {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-style: bold;
+        text-transform: uppercase;
+        font-size: rem(12px);
+        line-height: rem(18px);
+        letter-spacing: 1.5px;
+      }
+
+      h1 {
+        color: var(--primary);
+        font-family: var(--font-serif);
+        font-weight: 400;
+        font-size: rem(72px);
+        letter-spacing: -3;
+      }
+
+      h2 {
+        font-family: var(--font-sans);
+        font-weight: 400;
+        font-size: rem(17px);
+        line-height: 28px;
+      }
     }
   }
 }

@@ -6,11 +6,11 @@
   },
 
   "Home": {
-    "title": "Parametri della storia",
-    "divLoading": "Sto riflettendo...",
+    "eyebrow": "Pensato per i piú piccoli",
+    "title": "Crea la tua storia.",
+    "subTitle": "Compila i campi: al resto ci pensa Storyteller ✨",
     "errorTitle": "Errore",
-    "createErr": "Impossibile creare la storia",
-    "generateErr": "Errore durante la generazione della storia"
+    "createErr": "Impossibile creare la storia"
   },
 
   "Login": {
@@ -19,7 +19,8 @@
     "email": "Email",
     "changeEmail": "Cambia indirizzo email",
     "checkEmail": "Controlla la tua mail :)",
-    "errLogin": "Errore accesso"
+    "errLogin": "Errore accesso",
+    "loading": "Caricamento..."
   },
 
   "Themes": {
@@ -37,19 +38,20 @@
   },
 
   "StoryForm": {
-    "title": "Parametri della storia",
-    "age": "Fascia d'età:",
-    "theme": "Tema:",
-    "protagonist": "Nome del protagonista",
-    "friend": "Nome dell'amico (opzionale)",
-    "generate": "Genera"
+    "eyebrown": "dettagli storia",
+    "age": "Età",
+    "theme": "Tema",
+    "protagonist": "Protagonista",
+    "friend": "Amico protagonista",
+    "generate": "Genera",
+    "loading": "Generando..."
   },
 
   "StoryResult": {
-    "save": "Salva storia",
+    "save": "Salva",
     "saved": "Salvata ✓",
     "saveErr": "Errore salvataggio storia",
-    "loginToSave": "Accedi per salvare le tue storie! <3"
+    "loginToSave": "Accedi per salvare le tue storie"
   },
 
   "Stories": {

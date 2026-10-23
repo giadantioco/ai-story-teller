@@ -1,7 +1,15 @@
 .main {
   @include window-style();
+  display: grid;
+  padding: 0;
+  overflow: hidden;
+  max-width: none;
+  border: 1px solid var(--color-20);
+  background-color: var(--color-20);
 
-  h2 {
-    margin-bottom: rem(16px);
+  @media (min-width: rem(1024px)) {
+    &:has(> :nth-child(2)) {
+      grid-template-columns: 1fr 2fr;
+    }
   }
 }

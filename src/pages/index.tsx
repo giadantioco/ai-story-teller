@@ -1,6 +1,7 @@
 import Head from "next/head";
 import style from "@/styles/Home.module.scss";
 import Header from "@/components/Molecules/Header/Header";
+import Footer from "@/components/Molecules/Footer/Footer";
 import WindowBox from "@/components/Organism/Window/WindowBox";
 import { useState } from "react";
 import Toast from "@/components/Atoms/Toast/Toast";
@@ -89,8 +90,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={style.main}>
-        <Header logo={"Storyteller"} />
+        <Header logoTitle={"Storyteller"} />
         <div className={style.content}>
+          <div className={style.titleContainer}>
+            <p>{t("eyebrow")}</p>
+            <h1>{t("title")}</h1>
+            <h2>{t("subTitle")}</h2>
+          </div>
           {error && (
             <Toast
               setAction={setError}
@@ -98,7 +104,7 @@ export default function Home() {
               message={t("createErr")}
             />
           )}
-          <WindowBox title={t("title")}>
+          <WindowBox>
             <StoryForm
               age={age}
               theme={theme}
@@ -111,15 +117,10 @@ export default function Home() {
               loading={loading}
               onGenerate={handleGenerate}
             />
-
-            {error && <p>{t("generateErr")}</p>}
-            {loading && (
-              <div className={style.loading}>
-                <p>{t("divLoading")}</p>
-              </div>
-            )}
             {!loading && response && (
               <StoryResult
+                age={age}
+                theme={theme}
                 title={title}
                 story={story}
                 saved={saved}
@@ -135,6 +136,7 @@ export default function Home() {
           )}
         </div>
       </main>
+      <Footer />
     </>
   );
 }

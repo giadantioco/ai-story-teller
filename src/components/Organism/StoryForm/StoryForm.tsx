@@ -47,36 +47,41 @@ export function StoryForm(props: StoryFormProps) {
 
   return (
     <div className={style.container}>
-      <SelectBox
-        label={tStoryForm("age")}
-        list={translatedAges}
-        setAction={setAge}
-      />
-      <SelectBox
-        label={tStoryForm("theme")}
-        list={translatedThemes}
-        setAction={setTheme}
-      />
-      <InputBox
-        label={tStoryForm("protagonist")}
-        value={protagonist}
-        setValue={setProtagonist}
-      />
-      <InputBox
-        label={tStoryForm("friend")}
-        value={friend}
-        setValue={setFriend}
-      />
-      <Button
-        label={tStoryForm("generate")}
-        onClick={onGenerate}
-        disabled={
-          age.trim().length <= 0 ||
-          theme.trim().length <= 0 ||
-          protagonist.trim().length <= 0 ||
-          loading
-        }
-      />
+      <div className={style.inner}>
+        <p className={style.eyebrow}>{tStoryForm("eyebrown")}</p>
+        <div className={style.selectGroup}>
+          <SelectBox
+            label={tStoryForm("age")}
+            list={translatedAges}
+            setAction={setAge}
+          />
+          <SelectBox
+            label={tStoryForm("theme")}
+            list={translatedThemes}
+            setAction={setTheme}
+          />
+        </div>
+        <InputBox
+          label={tStoryForm("protagonist")}
+          value={protagonist}
+          setValue={setProtagonist}
+        />
+        <InputBox
+          label={tStoryForm("friend")}
+          value={friend}
+          setValue={setFriend}
+        />
+        <Button
+          label={loading ? tStoryForm("loading") : tStoryForm("generate")}
+          onClick={onGenerate}
+          disabled={
+            age.trim().length <= 0 ||
+            theme.trim().length <= 0 ||
+            protagonist.trim().length <= 0 ||
+            loading
+          }
+        />
+      </div>
     </div>
   );
 }

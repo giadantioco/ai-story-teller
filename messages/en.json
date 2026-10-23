@@ -6,11 +6,11 @@
   },
 
   "Home": {
-    "title": "Story Params",
-    "divLoading": "loading...",
+    "eyebrow": "A little story, for your little one",
+    "title": "Create your story.",
+    "subTitle": "Tell Storyteller who the hero is: it'll take care of the rest. ✨",
     "errorTitle": "Error",
-    "createErr": "Error while creating story",
-    "generateErr": "Error while generating story"
+    "createErr": "Error while creating story"
   },
 
   "Login": {
@@ -37,19 +37,20 @@
   },
 
   "StoryForm": {
-    "title": "Story Params",
-    "age": "Age:",
-    "theme": "Theme:",
-    "protagonist": "Protagonist's name",
-    "friend": "Friend's name (optional)",
-    "generate": "Generate"
+    "eyebrown": "story details",
+    "age": "Age",
+    "theme": "Theme",
+    "protagonist": "Protagonist",
+    "friend": "Protagonist's friend",
+    "generate": "Generate",
+    "loading": "Loading..."
   },
 
   "StoryResult": {
-    "save": "Save story",
+    "save": "Save",
     "saved": "Saved ✓",
     "saveErr": "Error while saving story",
-    "loginToSave": "Login to save your stories! <3"
+    "loginToSave": "Login to save your stories"
   },
 
   "Stories": {
