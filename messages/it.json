@@ -55,6 +55,7 @@
   },
 
   "Stories": {
+    "logToSeeStories": "Accedi per salvare le tue storie",
     "title": "Storie salvate"
   }
 }
