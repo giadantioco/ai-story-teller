@@ -4,13 +4,20 @@ interface ButtonProps {
   label: string;
   onClick?: () => void;
   disabled?: boolean;
+  variant?: "primary" | "dark";
+  icon?: string;
 }
 
 function Button(props: ButtonProps) {
-  const { label, onClick, disabled } = props;
+  const { label, onClick, disabled, variant = "primary", icon } = props;
   return (
-    <button disabled={disabled} className={style.button} onClick={onClick}>
+    <button
+      disabled={disabled}
+      className={`${style.button} ${variant}`}
+      onClick={onClick}
+    >
       {label}
+      <img src={icon} alt="" className={style.icon}></img>
     </button>
   );
 }

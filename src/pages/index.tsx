@@ -119,6 +119,8 @@ export default function Home() {
             />
             {!loading && response && (
               <StoryResult
+                age={age}
+                theme={theme}
                 title={title}
                 story={story}
                 saved={saved}
