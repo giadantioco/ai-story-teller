@@ -13,7 +13,7 @@ function Button(props: ButtonProps) {
   return (
     <button
       disabled={disabled}
-      className={`${style.button} ${variant}`}
+      className={`${style.button} ${style[variant]}`}
       onClick={onClick}
     >
       {label}

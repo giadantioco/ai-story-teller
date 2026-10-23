@@ -48,10 +48,10 @@
   },
 
   "StoryResult": {
-    "save": "Salva <3",
+    "save": "Salva",
     "saved": "Salvata ✓",
     "saveErr": "Errore salvataggio storia",
-    "loginToSave": "Accedi per salvare le tue storie! <3"
+    "loginToSave": "Accedi per salvare le tue storie"
   },
 
   "Stories": {

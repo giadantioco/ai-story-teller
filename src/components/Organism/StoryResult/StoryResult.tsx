@@ -36,18 +36,13 @@ export function StoryResult(props: StoryResultProps) {
                 label={saved ? tStoryResult("saved") : tStoryResult("save")}
                 onClick={onSave}
                 disabled={saved}
-                variant={"primary"}
+                variant={"dark"}
                 icon={"/save.svg"}
               />
               {saveError && <p>{tStoryResult("saveErr")}</p>}
             </>
           ) : (
-            <Button
-              label={tStoryResult("loginToSave")}
-              onClick={goToLogin}
-              variant={"primary"}
-              icon={"/save.svg"}
-            />
+            <Button label={tStoryResult("loginToSave")} onClick={goToLogin} />
           )}
         </div>
       </div>
