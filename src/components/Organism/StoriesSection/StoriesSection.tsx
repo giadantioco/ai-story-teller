@@ -12,12 +12,14 @@ export function StoriesSection(props: StoriesSectionProps) {
   const { stories } = props;
   const user = useUser();
   const tStores = useTranslations("Stories");
+  const tAge = useTranslations("Ages");
+  const tThemes = useTranslations("Themes");
 
   return (
     <section className={style.wrapper}>
       {user ? (
         <>
-          <h2 className={style.title}>{tStores("title")}</h2>
+          {/* <h2 className={style.title}>{tStores("title")}</h2> */}
           {stories.map((story) => (
             <StoryCard key={story.id} story={story} />
           ))}
