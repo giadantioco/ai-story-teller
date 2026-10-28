@@ -6,10 +6,11 @@ import { useUser } from "@/hooks/useUser";
 
 export interface StoriesSectionProps {
   stories: Story[];
+  onDelete: (id: string) => void;
 }
 
 export function StoriesSection(props: StoriesSectionProps) {
-  const { stories } = props;
+  const { stories, onDelete } = props;
   const user = useUser();
   const tStores = useTranslations("Stories");
 
@@ -19,7 +20,7 @@ export function StoriesSection(props: StoriesSectionProps) {
         <>
           {/* <h2 className={style.title}>{tStores("title")}</h2> */}
           {stories.map((story) => (
-            <StoryCard key={story.id} story={story} />
+            <StoryCard key={story.id} story={story} onDelete={onDelete} />
           ))}
         </>
       ) : (

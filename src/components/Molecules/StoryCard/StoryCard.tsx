@@ -7,10 +7,11 @@ import Button from "@/components/Atoms/Button/Button";
 
 export interface StoryCardProps {
   story: Story;
+  onDelete: (id: string) => void;
 }
 
 export function StoryCard(props: StoryCardProps) {
-  const { story } = props;
+  const { story, onDelete } = props;
   const [isOpen, setIsOpen] = useState(false);
   const tAge = useTranslations("Ages");
   const tTheme = useTranslations("Themes");
@@ -44,7 +45,7 @@ export function StoryCard(props: StoryCardProps) {
 
         <Button
           label={tCard("btnDelete")}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => onDelete(story.id)}
           variant={"dark"}
           icon={"/delete.svg"}
           size={"slim"}
