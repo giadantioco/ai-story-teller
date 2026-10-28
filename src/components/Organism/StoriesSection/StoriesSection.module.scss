@@ -1,6 +1,11 @@
 .wrapper {
   margin-top: rem(40px);
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(rem(240px), 1fr));
-  gap: rem(16px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: rem(5px);
+
+  > * {
+    flex: 0 1 rem(260px); // non cresce, può restringersi, base 260px
+  }
 }
