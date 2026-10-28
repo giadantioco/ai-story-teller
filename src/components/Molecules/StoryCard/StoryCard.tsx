@@ -8,10 +8,11 @@ import Button from "@/components/Atoms/Button/Button";
 export interface StoryCardProps {
   story: Story;
   onDelete: (id: string) => void;
+  onOpen: (story: Story) => void;
 }
 
 export function StoryCard(props: StoryCardProps) {
-  const { story, onDelete } = props;
+  const { story, onDelete, onOpen } = props;
   const [isOpen, setIsOpen] = useState(false);
   const tAge = useTranslations("Ages");
   const tTheme = useTranslations("Themes");
@@ -38,7 +39,7 @@ export function StoryCard(props: StoryCardProps) {
       <div className={style.actions}>
         <Button
           label={!isOpen ? tCard("btnOpen") : tCard("btnClose")}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => onOpen(story)}
           icon={"/open.svg"}
           size={"slim"}
         />
