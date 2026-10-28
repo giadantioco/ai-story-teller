@@ -56,5 +56,11 @@
   "Stories": {
     "logToSeeStories": "Login to see your stories",
     "title": "Saved Stories"
+  },
+
+  "Card": {
+    "btnOpen": "Open",
+    "btnClose": "Close",
+    "btnDelete": "Delete"
   }
 }

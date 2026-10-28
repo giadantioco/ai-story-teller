@@ -57,5 +57,11 @@
   "Stories": {
     "logToSeeStories": "Accedi per salvare le tue storie",
     "title": "Storie salvate"
+  },
+
+  "Card": {
+    "btnOpen": "Apri",
+    "btnClose": "Chiudi",
+    "btnDelete": "Elimina"
   }
 }

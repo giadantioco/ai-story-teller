@@ -12,8 +12,6 @@ export function StoriesSection(props: StoriesSectionProps) {
   const { stories } = props;
   const user = useUser();
   const tStores = useTranslations("Stories");
-  const tAge = useTranslations("Ages");
-  const tThemes = useTranslations("Themes");
 
   return (
     <section className={style.wrapper}>

@@ -80,6 +80,8 @@ export function StoryForm(props: StoryFormProps) {
             protagonist.trim().length <= 0 ||
             loading
           }
+          icon={"/arrow.svg"}
+          size={"medium"}
         />
       </div>
     </div>
