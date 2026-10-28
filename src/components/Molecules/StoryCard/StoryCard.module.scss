@@ -36,6 +36,10 @@
     font-weight: 400;
     font-size: rem(32px);
     line-height: rem(38.4px);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
   }
 
   .actions {

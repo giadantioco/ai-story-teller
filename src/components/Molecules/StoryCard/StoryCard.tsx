@@ -50,9 +50,8 @@ export function StoryCard(props: StoryCardProps) {
           icon={"/delete.svg"}
           size={"slim"}
         />
-
-        {isOpen && <p>{story.content}</p>}
       </div>
+      {isOpen && <p>{story.content}</p>}
     </article>
   );
 }
