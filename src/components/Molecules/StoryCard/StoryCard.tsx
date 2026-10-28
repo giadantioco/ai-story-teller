@@ -34,7 +34,7 @@ export function StoryCard(props: StoryCardProps) {
       </div>
 
       <h2>{story.title}</h2>
-      <div className={style.buttons}>
+      <div className={style.actions}>
         <Button
           label={!isOpen ? tCard("btnOpen") : tCard("btnClose")}
           onClick={() => setIsOpen(!isOpen)}

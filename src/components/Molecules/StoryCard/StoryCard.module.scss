@@ -1,5 +1,5 @@
 .card {
-  width: rem(300px);
+  width: rem(290px);
   padding: rem(20px);
   border: 2px solid var(--color-20);
   border-radius: rem(30px);
@@ -38,8 +38,9 @@
     line-height: rem(38.4px);
   }
 
-  .buttons {
+  .actions {
     display: flex;
     justify-content: space-between;
+    margin-top: auto;
   }
 }
