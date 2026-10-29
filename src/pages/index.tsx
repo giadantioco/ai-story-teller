@@ -7,7 +7,6 @@ import { useState } from "react";
 import Toast from "@/components/Atoms/Toast/Toast";
 import type { GetStaticPropsContext } from "next";
 import { useTranslations, useLocale } from "next-intl";
-import { useUser } from "@/hooks/useUser";
 import { supabase } from "@/lib/supabase";
 import { useStories } from "@/hooks/useStories";
 import { StoriesSection } from "@/components/Organism/StoriesSection/StoriesSection";
@@ -26,7 +25,7 @@ export default function Home() {
   const [saveError, setSaveError] = useState(false);
   const t = useTranslations("Home");
   const locale = useLocale();
-  const user = useUser();
+
   const { stories, loadStories, deleteStory } = useStories();
 
   const handleGenerate = async () => {
