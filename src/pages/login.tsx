@@ -10,8 +10,8 @@ import { supabase } from "@/lib/supabase";
 import Footer from "@/components/Molecules/Footer/Footer";
 
 export default function Login() {
-  const [email, setEmail] = useState("giada.antioco@gmail.com");
-  const [sent, setSent] = useState(true);
+  const [email, setEmail] = useState("");
+  const [sent, setSent] = useState(false);
   const [loginError, setLoginError] = useState<string | null>(null);
   const tLogin = useTranslations("Login");
   const locale = useLocale();
