@@ -33,6 +33,12 @@ export function StoriesSection(props: StoriesSectionProps) {
           <StoryModal
             story={selectedStory}
             onClose={() => setSelectedStory(null)}
+            onDelete={(id) => {
+              {
+                onDelete(id);
+              }
+              setSelectedStory(null);
+            }}
           />
         </>
       ) : (
