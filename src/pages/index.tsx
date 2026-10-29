@@ -129,11 +129,7 @@ export default function Home() {
               />
             )}
           </WindowBox>
-          {user ? (
-            <StoriesSection stories={stories} onDelete={deleteStory} />
-          ) : (
-            <p>Login to see your saved stories</p>
-          )}
+          <StoriesSection stories={stories} onDelete={deleteStory} />
         </div>
       </main>
       <Footer />

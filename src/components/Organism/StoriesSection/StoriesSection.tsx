@@ -20,8 +20,7 @@ export function StoriesSection(props: StoriesSectionProps) {
   return (
     <section className={style.wrapper}>
       {user ? (
-        <>
-          {/* <h2 className={style.title}>{tStores("title")}</h2> */}
+        <div className={style.cards}>
           {stories.map((story) => (
             <StoryCard
               key={story.id}
@@ -40,9 +39,11 @@ export function StoriesSection(props: StoriesSectionProps) {
               setSelectedStory(null);
             }}
           />
-        </>
+        </div>
       ) : (
-        <h2 className={style.login}>{tStores("logToSeeStories")}</h2>
+        <div className={style.loggedOut}>
+          <h3 className={style.login}>{tStores("logToSeeStories")}</h3>
+        </div>
       )}
     </section>
   );

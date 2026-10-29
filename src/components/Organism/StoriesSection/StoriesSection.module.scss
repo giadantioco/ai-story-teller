@@ -1,12 +1,19 @@
 .wrapper {
-  margin-top: rem(40px);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: rem(5px);
+  margin-top: rem(60px);
 
-  > * {
-    flex: 0 1 rem(260px); // non cresce, può restringersi, base 260px
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: rem(5px);
+
+    > * {
+      flex: 0 1 rem(260px); // non cresce, può restringersi, base 260px
+    }
+  }
+
+  .loggedOut {
+    flex: 0 1 rem(350px);
   }
 }
