@@ -3,7 +3,7 @@ import style from "./InputBox.module.scss";
 import { useId } from "react";
 
 interface InputBoxProps {
-  label: string;
+  label?: string;
   value: string;
   setValue: (value: string) => void;
 }

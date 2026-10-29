@@ -1,18 +1,63 @@
 .main {
-  min-height: 90vh;
   color: var(--color-100);
+  flex: 1;
 
   .content {
     padding: 40px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(20px);
 
-    .container {
+    h1 {
+      color: var(--primary);
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: rem(72px);
+      letter-spacing: -3;
+    }
+
+    .emailContainer {
+      width: min(rem(400px), 100%);
+      background-color: var(--color-20);
+      border-radius: 30px;
+      padding: rem(40px);
       display: flex;
-      gap: 20px;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
+      gap: 20px;
+
+      > * {
+        width: 100%;
+      }
+
+      label,
+      p {
+        white-space: pre-line;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 20px;
+      }
+
+      input {
+        width: 100%;
+        min-height: rem(45px);
+        padding: 0 rem(12px);
+        border: none;
+        border-radius: rem(12px);
+        background-color: var(--color-0);
+      }
+
+      button {
+        min-height: rem(45px);
+        border-radius: rem(12px);
+        font-weight: 700;
+        font-size: rem(17px);
+      }
+
+      .error {
+        font-size: rem(13px);
+        font-weight: 600;
+      }
     }
   }
 }

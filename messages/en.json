@@ -15,11 +15,14 @@
 
   "Login": {
     "headTitle": "Login / Storyteller",
+    "title": "Login",
     "btnLogin": "Login",
     "email": "Email",
+    "emailTitle": "Enter your email",
     "changeEmail": "Change email address",
-    "checkEmail": "Check your email :)",
-    "errLogin": "Login error.."
+    "checkEmail": "A link has been sent to “{email}”.",
+    "errLogin": "We couldn't send you the link. Check your email address and try again.",
+    "errRateLimit": "Too many attempts. Please try again in a few minutes."
   },
 
   "Themes": {
@@ -54,6 +57,13 @@
   },
 
   "Stories": {
+    "logToSeeStories": "Login to see your stories",
     "title": "Saved Stories"
+  },
+
+  "Card": {
+    "btnOpen": "Open",
+    "btnClose": "Close",
+    "btnDelete": "Delete"
   }
 }

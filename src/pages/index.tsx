@@ -27,7 +27,7 @@ export default function Home() {
   const t = useTranslations("Home");
   const locale = useLocale();
   const user = useUser();
-  const { stories, loadStories } = useStories();
+  const { stories, loadStories, deleteStory } = useStories();
 
   const handleGenerate = async () => {
     setLoading(true);
@@ -129,11 +129,7 @@ export default function Home() {
               />
             )}
           </WindowBox>
-          {user ? (
-            <StoriesSection stories={stories} />
-          ) : (
-            <p>Login to see your saved stories</p>
-          )}
+          <StoriesSection stories={stories} onDelete={deleteStory} />
         </div>
       </main>
       <Footer />

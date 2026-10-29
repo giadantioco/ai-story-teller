@@ -7,15 +7,17 @@ import InputBox from "@/components/Molecules/InputBox/InputBox";
 import Button from "@/components/Atoms/Button/Button";
 import { useTranslations, useLocale } from "next-intl";
 import { supabase } from "@/lib/supabase";
+import Footer from "@/components/Molecules/Footer/Footer";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
-  const [loginError, setLoginError] = useState(false);
+  const [loginError, setLoginError] = useState<string | null>(null);
   const tLogin = useTranslations("Login");
   const locale = useLocale();
 
   const handleLogin = async () => {
+    setLoginError(null);
     const { error } = await supabase.auth.signInWithOtp({
       email: email,
       options: {
@@ -24,7 +26,7 @@ export default function Login() {
     });
     if (error) {
       console.error("Errore:", error);
-      setLoginError(true);
+      setLoginError(error.status === 429 ? "errRateLimit" : "errLogin");
     } else {
       setSent(true);
     }
@@ -40,27 +42,43 @@ export default function Login() {
       <main className={style.main}>
         <Header logoTitle={"Storyteller"} />
         <div className={style.content}>
-          {sent ? (
-            <>
-              <p>{tLogin("checkEmail")}</p>
-              <Button
-                label={tLogin("changeEmail")}
-                onClick={() => setSent(false)}
-              />
-            </>
-          ) : (
-            <div className={style.container}>
-              <InputBox
-                setValue={setEmail}
-                label={tLogin("email")}
-                value={email}
-              />
-              <Button label={tLogin("btnLogin")} onClick={handleLogin} />
-              {loginError && <p>{tLogin("errLogin")}</p>}
-            </div>
-          )}
+          <h1>{tLogin("title")}</h1>
+          <div className={style.emailContainer}>
+            {sent ? (
+              <>
+                <p className={style.sent} role="status">
+                  {tLogin("checkEmail", { email })}
+                </p>
+                <Button
+                  label={tLogin("changeEmail")}
+                  onClick={() => setSent(false)}
+                />
+              </>
+            ) : (
+              <>
+                <InputBox
+                  setValue={setEmail}
+                  value={email}
+                  label={tLogin("emailTitle")}
+                />
+
+                <Button
+                  label={tLogin("btnLogin")}
+                  onClick={handleLogin}
+                  icon={"/arrow.svg"}
+                  size={"slim"}
+                />
+                {loginError && (
+                  <p className={style.error} role="alert">
+                    {tLogin(loginError)}
+                  </p>
+                )}
+              </>
+            )}
+          </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 }

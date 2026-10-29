@@ -1,14 +1,17 @@
 .container {
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 
   .text {
-    font-size: 22vw;
-    font-weight: 600;
+    font-size: 21vw;
+    font-weight: 700;
     color: var(--primary);
     letter-spacing: -0.02em;
     display: block;
     line-height: 0.7;
     transform: translateY(30%);
     white-space: nowrap;
+    flex-shrink: 0;
   }
 }

@@ -16,10 +16,13 @@
   "Login": {
     "headTitle": "Accedi / Storyteller",
     "btnLogin": "Accedi",
+    "title": "Accedi",
+    "emailTitle": "Inserisci la tua email",
     "email": "Email",
     "changeEmail": "Cambia indirizzo email",
-    "checkEmail": "Controlla la tua mail :)",
-    "errLogin": "Errore accesso",
+    "checkEmail": "Ti abbiamo mandato un link a “{email}”.",
+    "errLogin": "Non siamo riusciti a inviarti il link. Controlla l'indirizzo e riprova.",
+    "errRateLimit": "Troppi tentativi. Riprova tra qualche minuto.",
     "loading": "Caricamento..."
   },
 
@@ -55,6 +58,13 @@
   },
 
   "Stories": {
+    "logToSeeStories": "Accedi per salvare le tue storie",
     "title": "Storie salvate"
+  },
+
+  "Card": {
+    "btnOpen": "Apri",
+    "btnClose": "Chiudi",
+    "btnDelete": "Elimina"
   }
 }

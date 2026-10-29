@@ -33,9 +33,25 @@ export function useStories() {
       });
   }, [user]);
 
+  const deleteStory = async (id: string) => {
+    console.log("id da cancellare:", id);
+    const { data, error } = await supabase
+      .from("stories")
+      .delete()
+      .eq("id", id)
+      .select();
+    if (error) {
+      console.error("Error:", error);
+    } else if (data?.length === 0) {
+      console.warn("Blocked by policy RLS");
+    } else {
+      loadStories();
+    }
+  };
+
   useEffect(() => {
     loadStories();
   }, [loadStories]);
 
-  return { stories, loadStories };
+  return { stories, loadStories, deleteStory };
 }
