@@ -29,7 +29,11 @@ export function StoryModal(props: StoryModalProps) {
     <dialog ref={dialogRef} onClose={onClose} className={style.modal}>
       {story && (
         <div className={style.container}>
-          <button onClick={onClose} className={style.closeBtn}>
+          <button
+            onClick={onClose}
+            className={style.closeBtn}
+            aria-label={"close"}
+          >
             x
           </button>
           <StoryMeta story={story} />

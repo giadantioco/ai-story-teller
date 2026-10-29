@@ -34,7 +34,6 @@ export function useStories() {
   }, [user]);
 
   const deleteStory = async (id: string) => {
-    console.log("id da cancellare:", id);
     const { data, error } = await supabase
       .from("stories")
       .delete()

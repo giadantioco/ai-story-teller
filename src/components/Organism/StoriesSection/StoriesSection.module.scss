@@ -9,11 +9,12 @@
     gap: rem(5px);
 
     > * {
-      flex: 0 1 rem(260px); // non cresce, può restringersi, base 260px
+      flex: 0 1 rem(260px);
     }
   }
 
   .loggedOut {
-    flex: 0 1 rem(350px);
+    flex: 0 1 rem(260px);
+    color: var(--primary);
   }
 }

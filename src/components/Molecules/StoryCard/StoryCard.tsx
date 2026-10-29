@@ -2,7 +2,6 @@ import style from "./StoryCard.module.scss";
 import type { Story } from "@/hooks/useStories";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { useFormatter } from "next-intl";
 import Button from "@/components/Atoms/Button/Button";
 import { StoryMeta } from "@/components/Atoms/StoryMeta/StoryMeta";
 
@@ -15,8 +14,6 @@ export interface StoryCardProps {
 export function StoryCard(props: StoryCardProps) {
   const { story, onDelete, onOpen } = props;
   const [isOpen, setIsOpen] = useState(false);
-  const tAge = useTranslations("Ages");
-  const tTheme = useTranslations("Themes");
   const tCard = useTranslations("Card");
 
   return (
