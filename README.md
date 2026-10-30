@@ -3,7 +3,7 @@
 A web app that writes personalised bedtime stories for children aged 2 to 5.
 Pick an age range, a theme and the names of the hero and their friend: an AI writes a short, gentle story in English or Italian, and you can save your favourites to read again later.
 
-![Storyteller home page](docs/screenshot-home.png)
+![Storyteller home page](docs/screenshot-desktop.png)
 
 ## Features
 
