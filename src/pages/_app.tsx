@@ -3,6 +3,7 @@ import { Fraunces, DM_Sans } from "next/font/google";
 import type { AppProps } from "next/app";
 import { NextIntlClientProvider } from "next-intl";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const sans = DM_Sans({
   subsets: ["latin"],
@@ -24,6 +25,10 @@ export default function App({ Component, pageProps }: AppProps) {
       messages={pageProps.messages}
       timeZone="Europe/Rome"
     >
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#fd5569" />
+      </Head>
       <div className={`app ${sans.variable} ${serif.variable}`}>
         <Component {...pageProps} />
       </div>

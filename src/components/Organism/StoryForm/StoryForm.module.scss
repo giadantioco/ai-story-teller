@@ -9,7 +9,7 @@
 
     .eyebrow {
       font-weight: 700;
-      font-size: rem(12px);
+      font-size: rem(13px);
       line-height: 1.5;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -21,6 +21,7 @@
 
       > * {
         flex: 1;
+        min-width: 0;
       }
     }
 
@@ -28,7 +29,7 @@
       display: block;
       margin-bottom: rem(5px);
       font-weight: 700;
-      font-size: rem(13px);
+      font-size: rem(16px);
       line-height: 1.5;
     }
 
@@ -40,13 +41,23 @@
       border: none;
       border-radius: rem(8px);
       background-color: var(--color-0);
-      font-size: rem(13px);
+      font-size: rem(16px);
       color: var(--primary);
 
       &:focus-visible {
         outline: 2px solid var(--primary);
         outline-offset: 2px;
       }
+    }
+
+    select {
+      -webkit-appearance: none;
+      appearance: none;
+      background-image: url("/chevron-down.svg");
+      background-repeat: no-repeat;
+      background-position: right rem(12px) center;
+      background-size: rem(12px);
+      padding-right: rem(36px);
     }
 
     button {

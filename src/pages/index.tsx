@@ -79,17 +79,15 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Storyteller</title>
+        <title>{t("headTitle")}</title>
         <meta
           name="description"
           content="A customised Gemini APP that generates stories for children aged 2 to 5! <3 
           Developed by a tired mum :)"
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={style.main}>
-        <Header logoTitle={"Storyteller"} />
+        <Header logoTitle={t("headTitle")} />
         <div className={style.content}>
           <div className={style.titleContainer}>
             <p>{t("eyebrow")}</p>

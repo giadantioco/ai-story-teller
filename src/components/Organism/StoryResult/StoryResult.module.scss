@@ -15,7 +15,7 @@
       flex-direction: row;
       gap: 10px;
 
-      p {
+      li {
         background-color: var(--color-20);
         border-radius: 999px;
         padding: 6px 10px;
@@ -24,6 +24,7 @@
         font-weight: 600;
         font-size: rem(11px);
         line-height: rem(16.5px);
+        list-style: none;
       }
     }
 
