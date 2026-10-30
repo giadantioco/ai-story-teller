@@ -19,14 +19,16 @@ export function StoryResult(props: StoryResultProps) {
   const user = useUser();
   const goToLogin = useGoToLogin();
   const tStoryResult = useTranslations("StoryResult");
+  const tAge = useTranslations("Ages");
+  const tTheme = useTranslations("Themes");
 
   return (
     <div className={style.result}>
       <div className={style.scrollArea}>
-        <div className={style.tags}>
-          <p>{age}</p>
-          <p>{theme}</p>
-        </div>
+        <ul className={style.tags}>
+          <li>{tTheme(theme)}</li>
+          <li>{tAge(age)}</li>
+        </ul>
         <h3 className={style.storyTitle}>{title}</h3>
         <p className={style.storyResult}>{story}</p>
         <div className={style.actions}>
